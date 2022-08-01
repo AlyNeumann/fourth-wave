@@ -17,7 +17,7 @@ const combineReducers = (...reducers) => (state, action) => {
 
 // context provider
 const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(combineReducers(user), initialState); // pass more reducers combineReducers(user, blogs, products)
+  const [state, dispatch] = useReducer(combineReducers(user), initialState); // pass more reducers if needed
   const value = { state, dispatch };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

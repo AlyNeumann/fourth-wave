@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Web3Modal from 'web3modal';
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -18,6 +18,7 @@ import { sequence } from "0xsequence";
 // import { Web3Auth } from "@web3auth/web3auth"
 // import Providers from "./Providers"
 import { Context } from "../context/context";
+import { Button } from '@chakra-ui/react'
 
 export default function Wallet() {
 
@@ -184,7 +185,7 @@ export default function Wallet() {
         method: "eth_requestAccounts",
       });
       console.log(accounts);
-      setAccount(accounts);
+      setAccount(accounts[0]);
       setIsConnected(true);
       setWeb3(web3);
 
@@ -206,9 +207,8 @@ export default function Wallet() {
         setIsConnected(false);
         console.log(accounts);
         console.log("accounts changing")
-        setAccount(accounts);
-        if(accounts == []){
-          console.log("getting here?")
+        setAccount(accounts[0]);
+        if(!account){
           setIsConnected(false);
           dispatch({
             type: "CONNECTED_WALLET",
@@ -216,9 +216,10 @@ export default function Wallet() {
           })
         }else{
           setIsConnected(true);
+          console.log("account array? " + account)
           dispatch({
             type: "CONNECTED_WALLET",
-            payload: accounts,
+            payload: account,
           })
         }
 
@@ -246,12 +247,12 @@ export default function Wallet() {
     return (
         <div>
             <div>
-              <div>{!isConnected && <button onClick={(connectWallet)}>CONNECT</button>}</div>
+              <div>{!isConnected && <Button colorScheme='teal' variant='ghost' size='lg' onClick={(connectWallet)}>CONNECT</Button>}</div>
+              <div></div>
               <div>
               {modalClose ? "Please your connect wallet!" : ""}
               </div>
               </div>
-              {JSON.stringify(state)}
             </div>
     )
 

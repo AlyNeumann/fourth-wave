@@ -1,9 +1,13 @@
+import React, { useState, useContext } from 'react';
+import { Context } from "../context/context";
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Wallet from '../components/Wallet';
 
 export default function Home() {
+  const { state, dispatch } = useContext(Context);
+  console.log(state.user)
   return (
     <div className={styles.container}>
       <Head>
@@ -16,9 +20,11 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to Fourth Wave DAO
         </h1>
-
         <p className={styles.description}>
-          Get started by connecting your wallet.
+          {!state.user ? "Get started by connecting your wallet." : ""}
+{/* 
+        {Object.keys(state.user).length === 0 ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`} */}
+          
         </p>
         <Wallet/>
       </main>
