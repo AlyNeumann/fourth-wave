@@ -6,13 +6,13 @@ import { Provider } from "../context/context";
 
 function MyApp({ Component, pageProps }) {
   return (
- 
+
     <ChakraProvider>
-         <Provider>
-      <Component {...pageProps} />
+      <Provider>
+        <Component {...pageProps} />
       </Provider>
-      </ChakraProvider>
-      )
+    </ChakraProvider>
+  )
 }
 
 export default MyApp

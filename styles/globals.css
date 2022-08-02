@@ -15,6 +15,32 @@ a {
   text-decoration: none;
 }
 
+h3 {
+  padding: 20px;
+}
+
+input {
+  border-radius: 2.5%;
+}
+
 * {
   box-sizing: border-box;
+}
+
+#reasonstext
+{
+    height:100px;
+    font-size:14pt;
+    width: 90%;
+}
+#nametext
+{
+    height:20px;
+    font-size:14pt;
+    width: 90%;
+}
+#socialtext {
+  height:20px;
+  font-size:14pt;
+  width: 90%;
 }

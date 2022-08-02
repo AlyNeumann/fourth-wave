@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Context } from "../context/context";
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 import styles from '../styles/Home.module.css'
 import Wallet from '../components/Wallet';
+import { Grid, GridItem, Button, Box } from '@chakra-ui/react';
+import Link from 'next/link';
 
 export default function Home() {
   const { state, dispatch } = useContext(Context);
@@ -21,12 +23,37 @@ export default function Home() {
           Welcome to Fourth Wave DAO
         </h1>
         <p className={styles.description}>
-          {!state.user ? "Get started by connecting your wallet." : ""}
-{/* 
+          {!state.user || Object.keys(state.user).length === 0 ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`}
+          {/* 
         {Object.keys(state.user).length === 0 ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`} */}
-          
+
         </p>
-        <Wallet/>
+        <Wallet />
+        <Grid templateColumns='repeat(5, 1fr)' gap={4}>
+          <GridItem colSpan={2} h='100' bg='purple.100'><Box boxShadow='xl' p='6' rounded='md' bg='white'>
+          <Link href="/about">
+            <Button colorScheme="teal"
+              variant="ghost"
+              size="lg">Read About Our Mission</Button>
+              </Link>
+          </Box>
+          </GridItem>
+          <GridItem colStart={4} colEnd={6} h='100' bg='purple.100'><Box boxShadow='xl' p='6' rounded='md' bg='white'>
+          <Link href="/lottery">
+            <Button colorScheme="teal"
+              variant="ghost"
+              size="lg">Play The Lottery Game!</Button>
+              </Link>
+          </Box>
+          </GridItem>
+        </Grid>
+        <Link href="/application">
+            <Button colorScheme="teal"
+              variant="ghost"
+              padding="50px"
+              marginTop="15%"
+              size="lg">Apply HERE to become a candidate in our governance system, or an aunty in our nextwork.</Button>
+              </Link>
       </main>
 
       <footer className={styles.footer}>
