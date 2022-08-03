@@ -43,7 +43,7 @@ export default function Wallet() {
       package: WalletConnectProvider, // required
       options: {
         infuraId:
-          "https://rinkeby.infura.io/v3/7b547bd8017f43ddaa08afe125da3101", // required
+          process.env.INFURA_ID, // required
       },
     },
     coinbasewallet: {
@@ -51,7 +51,7 @@ export default function Wallet() {
       options: {
         appName: "Fourth Wave", // Required
         infuraId:
-          "https://rinkeby.infura.io/v3/7b547bd8017f43ddaa08afe125da3101", // Required
+        process.env.INFURA_ID, // Required
         rpc: "", // Optional if `infuraId` is provided; otherwise it's required
         chainId: 4, // Optional. It defaults to 1 if not provided
         darkMode: false, // Optional. Use dark theme, defaults to false
@@ -65,7 +65,7 @@ export default function Wallet() {
       options: {
         appName: "Fourth Wave",
         infuraId:
-          "https://rinkeby.infura.io/v3/7b547bd8017f43ddaa08afe125da3101",
+        process.env.INFURA_ID,
         chainId: 4,
         darkMode: true,
         appLogoUrl: null,
@@ -85,7 +85,7 @@ export default function Wallet() {
     fortmatic: {
       package: Fortmatic, // required
       options: {
-        key: "pk_test_833D9835F51A895A", // required
+        key: process.env.FORMATIC_KEY, // required
         network: {
           chainId: 4,
         }, // if we don't pass it, it will default to localhost:8454
@@ -94,7 +94,7 @@ export default function Wallet() {
     portis: {
       package: Portis, // required
       options: {
-        id: "1de19b04-0c2b-4656-b54b-b74a35030621", // required
+        id: process.env.PORTIS_ID, // required
       },
     },
     authereum: {
@@ -106,7 +106,7 @@ export default function Wallet() {
     bitski: {
       package: Bitski, // required
       options: {
-        clientId: "33f39af1-5de9-43ef-baf3-cfb45891dcef", // required
+        clientId: process.env.BITSKI_CLIENTID, // required
         callbackUrl: "BITSKI_CALLBACK_URL", // required
       },
     },
@@ -131,7 +131,7 @@ export default function Wallet() {
     // mewconnect: {
     //   package: MewConnect, // required
     //   options: {
-    //     infuraId: "https://rinkeby.infura.io/v3/7b547bd8017f43ddaa08afe125da3101" // required
+    //     infuraId: process.env.INFURA_ID // required
     //   }
     // },
     opera: {
@@ -150,7 +150,7 @@ export default function Wallet() {
     // web3auth: {
     //   package: Web3Auth, // required
     //   options: {
-    //     infuraId: "https://rinkeby.infura.io/v3/7b547bd8017f43ddaa08afe125da3101" // required
+    //     infuraId: process.env.INFURA_ID // required
     //   }
     // },
     bitkeep: {

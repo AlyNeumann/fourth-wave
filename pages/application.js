@@ -3,12 +3,15 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import AuntyForm from "../components/AuntyForm";
 import CandidateForm from '../components/CandidateForm';
+import Wallet from '../components/Wallet';
 import { Grid, GridItem, Button, Box } from '@chakra-ui/react';
 import React, { useState, useContext } from "react";
-
-//add links to medium articles, white paper
+import { Context } from "../context/context";
 
 export default function Application() {
+
+    const { state, dispatch } = useContext(Context);
+    console.log(state.user)
 
     const [isAuntyApplication, setIsAuntyApplication] = useState(false);
     const [isCandidateApplicaion, setIsCandidateApplicaion] = useState(false);
@@ -46,6 +49,7 @@ export default function Application() {
                 </h1>
                 <p className={styles.description}>
                 </p>
+                {!state.user || Object.keys(state.user).length === 0 ? <Wallet/> : `Account ${state.user} succesfully connected`}
                 {!openApplication && <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="100px">
                     <GridItem colSpan={2} h='100' bg='purple.100'><Box boxShadow='xl' p='6' rounded='md' bg='white'>
                         <Button colorScheme="teal"
@@ -66,11 +70,11 @@ export default function Application() {
                 </Grid>}
                 {openApplication &&
                     <Grid 
-                        h='500px'
+                        h='60%'
                         gap='1'
                         width='65%'>
                         <GridItem colStart={1} colEnd={12} h='80%' w="100%" bg='purple.100'>
-                            <Box boxShadow='xl' pt='10' pl='50' pr='50' pb='30'rounded='md' bg='white'>
+                            <Box boxShadow='2xl' pt='10' pl='50' pr='50' pb='30'rounded='md' bg='white'>
                             {isAuntyApplication && <AuntyForm />}
                             {isCandidateApplicaion && <CandidateForm />}
                             </Box>
@@ -79,11 +83,12 @@ export default function Application() {
                                 variant="ghost"
                                 size="lg"
                                 value="candidate"
-                                marginTop="20px"
+                                marginTop="50px"
                                 onClick={handleCloseApplication}>Close Application (will not save)</Button>
                         </Box>
                         </GridItem>
-                    </Grid>}
+                    </Grid>
+                     }
             </main>
 
             <footer className={styles.footer}>

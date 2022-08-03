@@ -11,6 +11,7 @@ export default function Home() {
 
   const { state, dispatch } = useContext(Context);
   console.log(state.user)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -25,8 +26,6 @@ export default function Home() {
         </h1>
         <p className={styles.description}>
           {!state.user || Object.keys(state.user).length === 0 ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`}
-          {/* 
-        {Object.keys(state.user).length === 0 ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`} */}
 
         </p>
         <Wallet />

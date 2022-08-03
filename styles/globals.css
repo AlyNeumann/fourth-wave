@@ -20,7 +20,8 @@ h3 {
 }
 
 input {
-  border-radius: 2.5%;
+  border-radius: 15px;
+  border: 1px solid rgb(218, 197, 232);
 }
 
 * {
@@ -31,16 +32,16 @@ input {
 {
     height:100px;
     font-size:14pt;
-    width: 90%;
+    width: 93%;
 }
 #nametext
 {
     height:20px;
     font-size:14pt;
-    width: 90%;
+    width: 93%;
 }
 #socialtext {
   height:20px;
   font-size:14pt;
-  width: 90%;
+  width: 93%;
 }

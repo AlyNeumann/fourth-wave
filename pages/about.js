@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 //add links to medium articles, white paper
 
 export default function About() {
+  
   return (
     <div className={styles.container}>
       <Head>
