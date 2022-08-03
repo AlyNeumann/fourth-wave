@@ -1,27 +1,32 @@
-// import clientPromise from '../../lib/mongodb-connect';
+import clientPromise from '../../lib/mongodb-connect';
 
 export default async function handler(req, res) {
+  let db;
+  try {
+    // await clientPromise
+    // `await clientPromise` will use the default database passed in the MONGODB_URI
+    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
+    
+    const client = await clientPromise
+    db = client.db("FourthWave")
+    // console.log(db);
+    // db.collection.insert(req.body);
+    const formsCollection = db.collection("Forms");
+    const result = await formsCollection.insertOne(req.body);
+    console.log(result)
+    //
+    // Then you can execute queries against your database like so:
+    // db.find({}) or any of the MongoDB Node Driver commands
 
-  // try {
-  //   await clientPromise
-  //   // `await clientPromise` will use the default database passed in the MONGODB_URI
-  //   // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-  //   //
-  //   // `const client = await clientPromise`
-  //   // `const db = client.db("myDatabase")`
-  //   //
-  //   // Then you can execute queries against your database like so:
-  //   // db.find({}) or any of the MongoDB Node Driver commands
-
-  //   return {
-  //     props: { isConnected: true },
-  //   }
-  // } catch (e) {
-  //   console.error(e)
-  //   return {
-  //     props: { isConnected: false },
-  //   }
-  // }
+    return {
+      props: { isConnected: true },
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      props: { isConnected: false },
+    }
+  }
 
     // Get data submitted in request's body.
     const body = req.body
@@ -46,5 +51,5 @@ export default async function handler(req, res) {
   
     // Found the name.
     // Sends a HTTP success code
-    res.status(200).json({ data: `${body.first}, ${body.last}, ${body.email}, ${body.reason}, ${body.twitter}, ${body.facebook}, ${body.socialother}` })
+    res.status(200).json({ data: `${body.first}, ${body.last}, ${body.email}, ${body.twitter}, ${body.facebook}, ${body.socialother}, ${body.reason}` })
   }

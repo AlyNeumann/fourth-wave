@@ -8,6 +8,7 @@ import { Grid, GridItem, Button, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 
 export default function Home() {
+
   const { state, dispatch } = useContext(Context);
   console.log(state.user)
   return (
