@@ -31,9 +31,6 @@ export default function Wallet() {
   //trying to move providerOptions to another file, not working yet
   // const providerOptions = Providers;
 
-  console.log(isConnected);
-  console.log(account);
-
   const providerOptions = {
     // set to Rinkeby right now, for Matic switch to - {
     // rpcUrl: 'https://rpc-mainnet.maticvigil.com',
@@ -184,7 +181,6 @@ export default function Wallet() {
       let accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
-      console.log(accounts);
       setAccount(accounts[0]);
       setIsConnected(true);
       setWeb3(web3);

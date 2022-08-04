@@ -8,9 +8,9 @@ export default function AuntyForm() {
 
     return (
         <form action="/api/auntyForm" method="post">
-            <Text fontSize='3xl'>Aunty Application</Text>
+            <Text fontSize='3xl' color='teal.600'>Aunty Application</Text>
             {/* <p>All information submitted to Fourth Wave will be kept confidential.</p> */}
-            <Grid h="550px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px'>
+            <Grid h="550px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0'>
                     <label htmlFor="first ">First Name: </label>
                     <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" />

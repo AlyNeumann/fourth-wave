@@ -8,10 +8,10 @@ export default function CandidateForm() {
 
     return (
             <form action="/api/candidateForm" method="post">
-                <Text fontSize='3xl'>Candidate Application</Text>
-                <Grid h="550px" border='1px' borderColor='purple.100' borderRadius='15px'>
+                <Text fontSize='3xl' color='teal.600'>Candidate Application</Text>
+                <Grid h="550px" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0'>
-                <label htmlFor="first ">First Name: </label>
+                <label htmlFor="first " >First Name: </label>
                 <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" />
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
@@ -39,16 +39,16 @@ export default function CandidateForm() {
                 <input type="text" id="reasonstext" name="reason" required />
                 </GridItem>
 
-                <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='0 0 15px 15px'>
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <Checkbox size='lg' colorScheme='purple' defaultChecked>
                         By checking this box, you are agreeing to be contacted by the Fourth Wave Team.
                     </Checkbox>
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50' >
                     <label htmlFor="wallet">User Wallet: </label>
                     <input type="text" id="wallet" name="wallet" value={state.user}/>
                 </GridItem>
-                <GridItem rowSpan={4} colSpan={4} p="2"bg='purple.50'>
+                <GridItem rowSpan={4} colSpan={4} p="2"bg='purple.50' borderRadius='0 0 15px 15px'>
                 <Button type="submit">Submit</Button>
                 </GridItem>
 

@@ -3,20 +3,19 @@
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
+  min-height: 70vh;
+  padding: 1.5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  margin-top: 7%;
+  margin-top: 2%;
   align-items: center;
 }
 
 .footer {
   display: flex;
   flex: 1;
-  padding: 25px 50px 75px 100px;
+  padding: 25px 25px 25px 25px;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
@@ -44,6 +43,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  color:rgb(68, 112, 109)
 }
 
 .title,
@@ -52,9 +52,31 @@
 }
 
 .description {
-  margin: 4rem 0;
+  margin: 2rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+  color:rgb(68, 112, 109)
+}
+
+.descriptionsm {
+  margin: 1rem 0;
+  line-height: 1;
+  font-size: 1rem;
+  color:rgb(68, 112, 109)
+}
+
+.whitepapertitle {
+  margin: 1.5rem 0;
+  line-height: 1;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.whitepapertext {
+  margin: .5rem 0;
+  line-height: 1;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .code {
@@ -106,7 +128,13 @@
 
 .logo {
   height: 1em;
-  margin-left: 0.5rem;
+}
+
+.nav {
+  height: 2em;
+  padding-top: 100px;
+  margin-right: 90%;
+  align-items: left;
 }
 
 @media (max-width: 600px) {
