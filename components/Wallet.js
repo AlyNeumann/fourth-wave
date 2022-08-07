@@ -213,7 +213,6 @@ export default function Wallet(props) {
       web3.currentProvider.on('accountsChanged', (newAccount) => {
         setIsConnected(false)
         setAccount(newAccount[0])
-        console.log(`this is the new account: ${newAccount[0]}`)
         dispatch({
           type: "CONNECTED_WALLET",
           payload: newAccount[0],
@@ -221,7 +220,6 @@ export default function Wallet(props) {
       });
 
       web3.currentProvider.on('disconnect', () => {
-        console.log('disconnected')
         setAccount(undefined)
         setIsConnected(false)
         setIsOwner(false)
@@ -244,6 +242,7 @@ export default function Wallet(props) {
       }
       console.log(err);
       setModalClose(true);
+      setError(err.message)
     }
   };
 

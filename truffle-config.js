@@ -70,15 +70,15 @@ module.exports = {
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 8545,            // Standard Ethereum port (default: none)
-      network_id: 137,       // Any network (default: none)
+      network_id: "*",       // Any network (default: none)
     },
     matic: {
       provider: () => new HDWalletProvider({
         privateKeys: private_keys, 
-        providerOrUrl: `https://mainnet.infura.io/v3/${infura_key}`,
+        providerOrUrl: `polygon-mumbai.infura.io/v3/${infura_key}`,
         numberOfAddresses: 1
       }),
-      network_id: 137,
+      network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true

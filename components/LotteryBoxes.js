@@ -1,9 +1,13 @@
 import { Box, Badge, VStack } from '@chakra-ui/react'
+import * as Scroll from 'react-scroll';
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 export default function LotteryBoxes(props) {
+
+    let Element   = Scroll.Element;
     return (
-        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' color='black' >
-            <Box p='6'>
+        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' color='black' h='200'>
+            <Box p='6' >
                 <Box alignItems='center'>
                     <Badge borderRadius='full' px='2' colorScheme='teal' marginBottom="20px">
                         {props.title}
@@ -30,17 +34,25 @@ export default function LotteryBoxes(props) {
                     noOfLines={1}
                 >
                 </Box>
-
+                <Element name="test7" className="element" id="containerElement" style={{
+          position: 'relative',
+          height: '200px',
+          overflow: 'scroll',
+          marginBottom: '100px'
+        }}>
                 <Box >
-                    <VStack overflow='auto'>
+                    <VStack>
+
                         {props.data.map((data, i) => {
-                            return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i} >
+                            return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i}>
                                 {data}
                             </Box>)
 
                         })}
+                    
                     </VStack>
                 </Box>
+                </Element>
             </Box>
         </Box>
     )

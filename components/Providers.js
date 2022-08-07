@@ -1,25 +1,38 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import WalletLink from 'walletlink';
-import Torus from "@toruslabs/torus-embed";
-import Fortmatic from "fortmatic";
+// import Torus from "@toruslabs/torus-embed";
+// import Fortmatic from "fortmatic";
 import Portis from "@portis/web3";
-import Authereum from "authereum";
-import ethProvider from "eth-provider";
-import { Bitski } from "bitski";
-import { Venly } from "@venly/web3-provider";
+// import Authereum from "authereum";
+// import ethProvider from "eth-provider";
+// import { Bitski } from "bitski";
+// import { Venly } from "@venly/web3-provider";
 // import DcentProvider from "dcent-provider";
 // import BurnerConnectProvider from "@burner-wallet/burner-connect-provider";
 // import MewConnect from "@myetherwallet/mewconnect-web-client";
-import { sequence } from "0xsequence";
+// import { sequence } from "0xsequence";
 // import { Web3Auth } from "@web3auth/web3auth"
-console.log(process.env.NEXT_PUBLIC_INFURA_ID)
+
 
 export const Providers = {
 
   rpc: {
     1: "https://rpc-mumbai.matic.today",
     2: "https://polygon-rpc.com",
+  },
+  walletlink: {
+    package: CoinbaseWalletSDK, // Required
+    options: {
+      appName: "Web 3 Modal Demo", // Required
+      infuraId: process.env.INFURA_ID // Required unless you provide a JSON RPC url; see `rpc` below
+    }
+  },
+  walletconnect: {
+    package: WalletConnectProvider, // required
+    options: {
+      infuraId: process.env.INFURA_ID // required
+    }
   },
   // walletconnect: {
   //   package: WalletConnectProvider, // required
@@ -33,23 +46,23 @@ export const Providers = {
       appName: "Fourth Wave", // Required
       infuraId: process.env.NEXT_PUBLIC_INFURA_ID, // Required
       rpc: "", // Optional if `infuraId` is provided; otherwise it's required
-      chainId: 137, // Optional. It defaults to 1 if not provided
+      chainId: 80001, // Optional. It defaults to 1 if not provided
       darkMode: false // Optional. Use dark theme, defaults to false
     }
   },
   binancechainwallet: {
     package: true
   },
-  walletlink: {
-    package: WalletLink,
-    options: {
-      appName: "Fourth Wave",
-      infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
-      chainId: 137,
-      darkMode: true,
-      appLogoUrl: null
-    }
-  },
+  // walletlink: {
+  //   package: WalletLink,
+  //   options: {
+  //     appName: "Fourth Wave",
+  //     infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
+  //     chainId: 80001,
+  //     darkMode: true,
+  //     appLogoUrl: null
+  //   }
+  // },
   // torus: {
   //   package: Torus, // required
   //   options: {
@@ -70,12 +83,12 @@ export const Providers = {
   //     } // if we don't pass it, it will default to localhost:8454
   //   }
   // },
-  portis: {
-    package: Portis, // required
-    options: {
-      id: process.env.NEXT_PUBLIC_PORTIS_ID // required
-    }
-  },
+  // portis: {
+  //   package: Portis, // required
+  //   options: {
+  //     id: process.env.NEXT_PUBLIC_PORTIS_ID // required
+  //   }
+  // },
   // authereum: {
   //   package: Authereum // required
   // },

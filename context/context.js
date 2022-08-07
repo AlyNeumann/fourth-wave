@@ -28,7 +28,6 @@ const combineReducers = (...reducers) => (state, action) => {
 // context provider
 const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(combineReducers(user, players, pot, winners, lotteryContract, web3), initialState); // pass more reducers if needed
-  console.log(state)
   const value = { state, dispatch };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
