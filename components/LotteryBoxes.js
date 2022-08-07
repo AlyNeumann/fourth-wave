@@ -32,9 +32,9 @@ export default function LotteryBoxes(props) {
                 </Box>
 
                 <Box >
-                    <VStack>
-                        {props.data.map(data => {
-                            return (<Box as='span' ml='2' color='gray.600' fontSize='sm'>
+                    <VStack overflow='auto'>
+                        {props.data.map((data, i) => {
+                            return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i} >
                                 {data}
                             </Box>)
 

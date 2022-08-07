@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from "../context/context";
 import Head from 'next/head'
 import Image from 'next/image'
@@ -26,15 +26,17 @@ export default function Lottery() {
         <p className={styles.description}>
           Welcome Player
         </p>
-        {!state.user || Object.keys(state.user).length === 0 ? <Wallet /> : `Account ${state.user} succesfully connected`}
-        {/* <Wallet /> */}
+        {!state.user ? 'Please connect your wallet to play' : `${state.user}`}
+        {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}
         <LotteryGrid />
       </main>
 
       <footer className={styles.footer}>
         <span className={styles.logo}>
-          <Link href="/">
+          <Link href="/" passHref>
+            <a>
             <Image src="/images/FourthWave_Logo.png" alt="Vercel Logo" width={72} height={72} />
+            </a>
           </Link>
         </span>
       </footer>

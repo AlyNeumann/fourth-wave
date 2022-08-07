@@ -49,7 +49,7 @@ export default function Application() {
                 </h1>
                 <p className={styles.description}>
                 </p>
-                {!state.user || Object.keys(state.user).length === 0 ? <Wallet /> : `Account ${state.user} succesfully connected`}
+                {!state.user ? <Wallet /> : `Account ${state.user} succesfully connected`}
                 {!openApplication && <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="100px">
                     <GridItem colSpan={2} h='100'><Box boxShadow='xl' p='6' rounded='md' bg='white'>
                         <Button colorScheme="teal"
@@ -95,8 +95,10 @@ export default function Application() {
 
             <footer className={styles.footer}>
                 <span className={styles.logo}>
-                    <Link href="/">
+                    <Link href="/" passHref>
+                        <a>
                         <Image src="/images/FourthWave_Logo.png" alt="Vercel Logo" width={72} height={72} />
+                        </a>
                     </Link>
                 </span>
             </footer>

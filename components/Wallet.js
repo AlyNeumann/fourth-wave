@@ -1,167 +1,178 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Web3Modal from "web3modal";
 import Web3 from "web3";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
-import WalletLink from "walletlink";
-import Torus from "@toruslabs/torus-embed";
-import Fortmatic from "fortmatic";
-import Portis from "@portis/web3";
-import Authereum from "authereum";
-import ethProvider from "eth-provider";
-import { Bitski } from "bitski";
-import { Venly } from "@venly/web3-provider";
-// import DcentProvider from "dcent-provider";
-// import BurnerConnectProvider from "@burner-wallet/burner-connect-provider";
-// import MewConnect from "@myetherwallet/mewconnect-web-client";
-import { sequence } from "0xsequence";
-// import { Web3Auth } from "@web3auth/web3auth"
-// import Providers from "./Providers"
+// import { ethers } from 'ethers';
+import { Providers } from "./Providers";
 import { Context } from "../context/context";
 import { Button } from "@chakra-ui/react";
+import lotteryContract from '../blockchain/lottery'
+import PricePicker from "./PricePicker";
 
-export default function Wallet() {
+export default function Wallet(props) {
+
   const { state, dispatch } = useContext(Context);
 
   const [account, setAccount] = useState();
   const [web3, setWeb3] = useState();
   const [provider, setProvider] = useState();
+  const [network, setNetwork] = useState();
   const [modalClose, setModalClose] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
-  //trying to move providerOptions to another file, not working yet
-  // const providerOptions = Providers;
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('')
+  const [contract, setContract] = useState()
+  const [lotteryPot, setLotteryPot] = useState();
+  const [players, setPlayers] = useState();
+  const [lotteryHistory, setLotteryHistory] = useState([]);
+  const [lotteryId, setLotteryId] = useState();
+  const [randomResult, setRandomResult] = useState();
+  const [donated, setDonated] = useState(false);
+  const [amount, setAmount] = useState('100000000000000000');
+  const [isOwner, setIsOwner] = useState(false);
 
-  const providerOptions = {
-    // set to Rinkeby right now, for Matic switch to - {
-    // rpcUrl: 'https://rpc-mainnet.maticvigil.com',
-    // chainId: 137
-    // }
-    walletconnect: {
-      package: WalletConnectProvider, // required
-      options: {
-        infuraId:
-          process.env.INFURA_ID, // required
-      },
-    },
-    coinbasewallet: {
-      package: CoinbaseWalletSDK, // Required
-      options: {
-        appName: "Fourth Wave", // Required
-        infuraId:
-        process.env.INFURA_ID, // Required
-        rpc: "", // Optional if `infuraId` is provided; otherwise it's required
-        chainId: 4, // Optional. It defaults to 1 if not provided
-        darkMode: false, // Optional. Use dark theme, defaults to false
-      },
-    },
-    binancechainwallet: {
-      package: true,
-    },
-    walletlink: {
-      package: WalletLink,
-      options: {
-        appName: "Fourth Wave",
-        infuraId:
-        process.env.INFURA_ID,
-        chainId: 4,
-        darkMode: true,
-        appLogoUrl: null,
-      },
-    },
-    torus: {
-      package: Torus, // required
-      options: {
-        networkParams: {
-          chainId: 4, // optional
-        },
-        config: {
-          buildEnv: "development", // optional
-        },
-      },
-    },
-    fortmatic: {
-      package: Fortmatic, // required
-      options: {
-        key: process.env.FORMATIC_KEY, // required
-        network: {
-          chainId: 4,
-        }, // if we don't pass it, it will default to localhost:8454
-      },
-    },
-    portis: {
-      package: Portis, // required
-      options: {
-        id: process.env.PORTIS_ID, // required
-      },
-    },
-    authereum: {
-      package: Authereum, // required
-    },
-    frame: {
-      package: ethProvider, // required
-    },
-    bitski: {
-      package: Bitski, // required
-      options: {
-        clientId: process.env.BITSKI_CLIENTID, // required
-        callbackUrl: "BITSKI_CALLBACK_URL", // required
-      },
-    },
-    venly: {
-      package: Venly, // required
-      options: {
-        clientId: "Testaccount-capsule", // required
-      },
-    },
-    // dcentwallet: {
-    //   package: DcentProvider, // required
-    //   options: {
-    //     rpcUrl: "INSERT_RPC_URL" // required
-    //   }
-    // },
-    // burnerconnect: {
-    //   package: BurnerConnectProvider, // required
-    //   options: {
-    //     defaultNetwork: "4"
-    //   }
-    // },
-    // mewconnect: {
-    //   package: MewConnect, // required
-    //   options: {
-    //     infuraId: process.env.INFURA_ID // required
-    //   }
-    // },
-    opera: {
-      package: true,
-    },
-    sequence: {
-      package: sequence, // required
-      options: {
-        appName: "Fourth Wave", // optional
-        defaultNetwork: "rinkeby", // optional
-      },
-    },
-    clvwallet: {
-      package: true,
-    },
-    // web3auth: {
-    //   package: Web3Auth, // required
-    //   options: {
-    //     infuraId: process.env.INFURA_ID // required
-    //   }
-    // },
-    bitkeep: {
-      package: true,
-    },
-    starzwallet: {
-      package: true,
-    },
+  const providerOptions = Providers;
+
+  useEffect(() => {
+    if (contract) {
+      updateState();
+    }
+  }, [contract])
+
+  const updateState = () => {
+    if (contract) getPot()
+    if (contract) getPlayers()
+    if (contract) getLotteryId()
+    if (lotteryContract) checkRandomness()
+    if (lotteryContract) getHistory()
   };
+
+  const getPot = async () => {
+    setError("");
+    const pot = await state.lotteryContract.methods.getContractBalance().call();
+    setLotteryPot(web3.utils.fromWei(pot, "ether"));
+    dispatch({
+      type: "LOTTERY_POT",
+      payload: pot,
+    });
+  };
+
+  const getPlayers = async () => {
+    setError("");
+    const players = await state.lotteryContract.methods.getPlayers().call();
+    setPlayers(players);
+    dispatch({
+      type: "LOTTERY_PLAYERS",
+      payload: players,
+    });
+  };
+
+  const getHistory = async (id) => {
+    setError("");
+    setLotteryHistory([])
+    let winners = [];
+    for (let i = parseInt(id); i > 0; i--) {
+      const winnerAddress = await state.lotteryContract.methods.lotteryHistory(i).call()
+      winners.push(winnerAddress)
+    }
+    winners = winners.slice(1);
+    setLotteryHistory(winners)
+    dispatch({
+      type: "LOTTERY_WINNERS",
+      payload: winners,
+    });
+  };
+
+  const getLotteryId = async () => {
+    setError("");
+    const lotteryId = await state.lotteryContract.methods.lotteryId().call();
+    setLotteryId(lotteryId);
+    await getHistory(lotteryId);
+  };
+
+  const checkRandomness = async () => {
+    setError("");
+    const randomResult = await state.lotteryContract.methods.randomResult().call();
+    setRandomResult(randomResult);
+  };
+
+
+  const pickWinnerHandler = async () => {
+    setError("");
+    let address = state.user;
+    try {
+      await state.lotteryContract.methods.pickWinner().send({
+        from: address,
+        gas: 300000,
+        gasPrice: null,
+      });
+      setSuccess(`Winner is being chosen....`);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const payWinnerHandler = async () => {
+    setError("");
+    setSuccess("");
+    let address = state.user;
+    try {
+      await state.lotteryContract.methods.payWinner().send({
+        from: address,
+        gas: 300000,
+        gasPrice: null,
+      });
+      const winnerAddress = await contract.methods
+        .lotteryHistory(lotteryId)
+        .call();
+      setSuccess(`And your winner is....${winnerAddress}`);
+      updateState();
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const donateHandler = async () => {
+    setError("");
+    setSuccess("");
+    let address = state.user;
+    try {
+      await state.lotteryContract.methods.donations().send({
+        from: address,
+        value: amount,
+        gas: 300000,
+        gasPrice: null,
+      });
+      setDonated(true);
+      setSuccess(`A donation. Nice.`);
+    } catch (err) {
+      setError(err.message);
+      console.log(err.message)
+    }
+  }
+
+  const handleEnterLottery = async () => {
+    let address = state.user;
+    try {
+      await state.lotteryContract.methods.enter().send({
+        from: address,
+        value: amount,
+        gas: 300000,
+        gasPrice: null,
+      });
+      updateState();
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  const handleAmount = (e) => {
+    setAmount(e.target.value)
+  }
 
   const connectWallet = async () => {
     try {
       const web3Modal = new Web3Modal({
-        network: "rinkeby",
+        network: "matic",
         theme: {
           background: "rgb(74, 64, 79)",
           main: "rgb(240, 237, 242)",
@@ -174,63 +185,63 @@ export default function Wallet() {
       });
 
       const provider = await web3Modal.connect();
-      //if needed for breaking this into multiple functions
       setProvider(provider);
+
       let web3 = new Web3(provider);
 
-      let accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
+      dispatch({
+        type: "WEB3_INSTANCE",
+        payload: web3,
       });
-      setAccount(accounts[0]);
-      setIsConnected(true);
       setWeb3(web3);
 
+      let network = await web3.eth.net.getId()
+      setNetwork(network);
+
+      let accounts = await web3.eth.getAccounts()
+      setAccount(accounts[0])
+      setIsConnected(true);
       dispatch({
         type: "CONNECTED_WALLET",
-        payload: accounts,
+        payload: accounts[0],
       });
 
-      // Subscribe to provider connection
-      provider.on("connect", (info) => {
-        console.log(info);
-        console.log("connecting");
-        setIsConnected(true);
+      if (accounts[0] == process.env.NEXT_PUBLIC_OWNER) {
+        setIsOwner(true);
+      }
+
+      web3.currentProvider.on('accountsChanged', (newAccount) => {
+        setIsConnected(false)
+        setAccount(newAccount[0])
+        console.log(`this is the new account: ${newAccount[0]}`)
+        dispatch({
+          type: "CONNECTED_WALLET",
+          payload: newAccount[0],
+        });
       });
 
-      // Subscribe to accounts change
-      provider.on("accountsChanged", (accounts) => {
-        setIsConnected(false);
-        console.log(accounts);
-        console.log("accounts changing");
-        setAccount(accounts[0]);
-        if (!account) {
-          setIsConnected(false);
-          dispatch({
-            type: "CONNECTED_WALLET",
-            payload: null,
-          });
-        } else {
-          setIsConnected(true);
-          console.log("account array? " + account);
-          dispatch({
-            type: "CONNECTED_WALLET",
-            payload: account,
-          });
-        }
+      web3.currentProvider.on('disconnect', () => {
+        console.log('disconnected')
+        setAccount(undefined)
+        setIsConnected(false)
+        setIsOwner(false)
+        dispatch({
+          type: "CONNECTED_WALLET",
+          payload: '',
+        });
       });
 
-      // Subscribe to chainId change
-      provider.on("chainChanged", (chainId) => {
-        console.log(chainId);
+      const lc = lotteryContract(web3);
+      setContract(lc);
+      dispatch({
+        type: "LOTTERY_CONTRACT",
+        payload: lc,
       });
 
-      // Subscribe to provider disconnection
-      provider.on("disconnect", (error) => {
-        console.log("disconnecting");
-        console.log(error);
-        setIsConnected(false);
-      });
     } catch (err) {
+      if (err == 'Modal closed by user') {
+        setModalClose(true)
+      }
       console.log(err);
       setModalClose(true);
     }
@@ -240,7 +251,7 @@ export default function Wallet() {
     <div>
       <div>
         <div>
-          {!isConnected && (
+          {(!isConnected && !state.user ) && (
             <Button
               colorScheme="teal"
               variant="ghost"
@@ -250,9 +261,47 @@ export default function Wallet() {
               CONNECT
             </Button>
           )}
+          {(props.page == 'lottery' && state.user) ?
+            <div> <Button colorScheme="teal"
+              variant="ghost"
+              size="lg"
+              onClick={handleEnterLottery}>ENTER</Button>
+              <Button colorScheme="teal"
+                variant="ghost"
+                size="lg"
+                onClick={donateHandler}>DONATE</Button></div>
+            : ''}
         </div>
-        <div></div>
+        <div>{(isOwner) ? (<div>
+          <Button
+            colorScheme="teal"
+            variant="ghost"
+            size="lg"
+            onClick={pickWinnerHandler}
+          >
+            PICK WINNER
+          </Button>
+          <Button
+            colorScheme="teal"
+            variant="ghost"
+            size="lg"
+            onClick={checkRandomness}
+          >
+            CHECK RANDOMNESS
+          </Button>
+          <Button
+            colorScheme="teal"
+            variant="ghost"
+            size="lg"
+            onClick={payWinnerHandler}
+          >
+            PAY WINNER
+          </Button>
+        </div>) : ''}</div>
+        {(state.web3 && props.page == 'lottery') ? <PricePicker amount={amount} web3={state.web3} handleAmount={handleAmount} /> : ''}
+        <div>{error}</div>
         <div>{modalClose ? "Please your connect wallet!" : ""}</div>
+        <div>{donated ? 'thanks for your donation' : ''}</div>
       </div>
     </div>
   );

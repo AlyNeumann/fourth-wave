@@ -7,10 +7,8 @@ import Wallet from '../components/Wallet';
 import { Grid, GridItem, Button, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
-import theme from '../styles/theme';
 
 export default function Home() {
-  console.log(`the theme: ${theme}`)
 
   const { state, dispatch } = useContext(Context);
 
@@ -27,7 +25,7 @@ export default function Home() {
           Welcome to Fourth Wave DAO
         </h1>
         <p className={styles.description}>
-          {!state.user || Object.keys(state.user).length === 0 ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`}
+          {!state.user ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`}
 
         </p>
         <Wallet />
@@ -56,14 +54,17 @@ export default function Home() {
             variant="ghost"
             padding="50px 10px 50px 10px"
             marginTop="18%"
+            whiteSpace='normal'
             size="lg">Apply HERE to become a candidate in our governance system, or an aunty in our nextwork.</Button>
         </Link>
       </main>
 
       <footer className={styles.footer}>
         <span className={styles.logo}>
-          <Link href="/">
+          <Link href="/" passHref>
+            <a>
             <Image src="/images/FourthWave_Logo.png" alt="Vercel Logo" width={72} height={72} />
+            </a>
           </Link>
         </span>
       </footer>

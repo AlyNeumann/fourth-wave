@@ -31,7 +31,7 @@ export default function About() {
           We will offer education as well as services required for women to stay anonymous while using the internet.
         </p>
         <p className={styles.descriptionsm}>
-          Our innovative governance model is a breath of fresh air to the DeFi ecosystem.
+          Our innovative governance model will be a breath of fresh air to the DeFi ecosystem.
         </p>
         <p className={styles.descriptionsm}>
           Read more about Fourth Wave below!
@@ -57,8 +57,10 @@ export default function About() {
 
       <footer className={styles.footer}>
         <span className={styles.logo}>
-          <Link href="/">
+          <Link href="/" passHref>
+            <a>
             <Image src="/images/FourthWave_Logo.png" alt="Vercel Logo" width={72} height={72} />
+            </a>
           </Link>
         </span>
       </footer>

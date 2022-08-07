@@ -1,22 +1,27 @@
-import { Box, Grid, GridItem, Button } from '@chakra-ui/react'
+import React, { useContext} from "react";
+import { Grid, GridItem } from '@chakra-ui/react'
+import { Context } from "../context/context";
 import LotteryBoxes from './LotteryBoxes'
 
 export default function LotteryGrid(props) {
 
-    const winners = ["OX1213123dsf", "OXrhqo34204u723", "OX3427804ujdf"]
+    const { state, dispatch } = useContext(Context);
+    let currentPot = (state.pot.toString()) / 1000000000000000000;
+    // console.log(currentPot)
+
     return (
         <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="30px">
             <GridItem colSpan={2} h='200' bg='purple.100'>
-                <LotteryBoxes title="Lottery Pot" text="The current lottery pot total: " data={['$10045']} />
+                <LotteryBoxes title="Lottery Pot" text="The current lottery pot total: " data={[currentPot]} />
             </GridItem>
             <GridItem colStart={4} colEnd={6} h='200' bg='purple.100'>
-                <LotteryBoxes title="Treasury" text="The current treasury total: " data={['$10045458']} />
+                <LotteryBoxes title="Treasury" text="The current treasury total: " data={[currentPot]} />
             </GridItem>
             <GridItem colSpan={2} h='200' bg='purple.100'>
-                <LotteryBoxes title="Current Players" text="List of current lottery players: " data={winners} />
+                <LotteryBoxes title="Current Players" text="List of current lottery players: " data={state.players} />
             </GridItem>
             <GridItem colStart={4} colEnd={6} h='200' bg='purple.100'>
-                <LotteryBoxes title="Past Winners" text="List of the previous lottery winners: " data={winners} />
+                <LotteryBoxes title="Past Winners" text="List of the previous lottery winners: " data={state.winners} />
             </GridItem>
         </Grid>
     )
