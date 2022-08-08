@@ -26,7 +26,7 @@ export default function Lottery() {
         <p className={styles.description}>
           Welcome Player - WARNING - This app is still running on the testnet!
         </p>
-        {!state.user ? 'Please connect your wallet to play' : `${state.user}`}
+        {!state.user ? 'Please connect your wallet to play' : `Account succesfully connected`}
         {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}
         <LotteryGrid />
       </main>

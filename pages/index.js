@@ -25,7 +25,7 @@ export default function Home() {
           Welcome to Fourth Wave DAO
         </h1>
         <p className={styles.description}>
-          {!state.user ? "Get started by connecting your wallet." : `Account ${state.user} succesfully connected`}
+          {!state.user ? "Get started by connecting your wallet." : `Account succesfully connected`}
 
         </p>
         <Wallet />
