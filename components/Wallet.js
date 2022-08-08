@@ -27,7 +27,7 @@ export default function Wallet(props) {
   const [lotteryId, setLotteryId] = useState();
   const [randomResult, setRandomResult] = useState();
   const [donated, setDonated] = useState(false);
-  const [amount, setAmount] = useState('100000000000000000');
+  const [amount, setAmount] = useState('1000000000000000000');
   const [isOwner, setIsOwner] = useState(false);
 
   const providerOptions = Providers;
@@ -174,11 +174,11 @@ export default function Wallet(props) {
       const web3Modal = new Web3Modal({
         network: "matic",
         theme: {
-          background: "rgb(74, 64, 79)",
-          main: "rgb(240, 237, 242)",
-          secondary: "rgb(198, 182, 207)",
-          border: "rgba(171, 178, 214, 0.14)",
-          hover: "rgb(185, 172, 191)",
+          background: "rgb(178, 217, 210)",
+          main: "rgb(61, 77, 74)",
+          secondary: "rgb(87, 125, 118)",
+          border: "rgba(38, 117, 103)",
+          hover: "rgb(198, 245, 237)",
         },
         cacheProvider: true,
         providerOptions,

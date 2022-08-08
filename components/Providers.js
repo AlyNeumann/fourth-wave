@@ -31,7 +31,7 @@ export const Providers = {
   walletconnect: {
     package: WalletConnectProvider, // required
     options: {
-      infuraId: process.env.NEXT_PUBLIC_IINFURA_ID // required
+      infuraId: process.env.NEXT_PUBLIC_INFURA_ID // required
     }
   },
   coinbasewallet: {
@@ -80,7 +80,7 @@ export const Providers = {
   portis: {
     package: Portis, // required
     options: {
-      id: process.env.NEXT_PUBLIC_PORTIS__PROJECT_ID // required
+      id: process.env.NEXT_PUBLIC_PORTIS_PROJECT_ID // required
     }
   },
   // authereum: {
