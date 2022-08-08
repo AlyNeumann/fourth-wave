@@ -36,18 +36,22 @@ export default function About() {
         <p className={styles.descriptionsm}>
           Read more about Fourth Wave below!
         </p>
-        <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="50px">
-          <GridItem colSpan={2} h='100'><Box boxShadow='xl' p='6' rounded='md' bg='white'>
+        <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="5%" pb='5%'>
+          <GridItem colSpan={2} h='100' ><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[100, 200, 300]}>
             <a target="_blank" href="https://medium.com/@alymarguerite/fourth-wave-dao-the-white-paper-dcdce2582a06" rel="noopener noreferrer">
               <Button
                 colorScheme="teal"
                 variant="ghost"
                 bg='purple.100'
-                size="lg">Read our white paper</Button>
+                whiteSpace='normal'
+                w='100%'
+                h='100%'
+                p='5%'
+                size="lg">The white paper</Button>
             </a>
           </Box>
           </GridItem>
-          <GridItem colStart={4} colEnd={6} h='100'><Box boxShadow='xl' p='6' rounded='md' bg='white'>
+          <GridItem colStart={4} colEnd={6} h='100' w='100%'><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[100, 200, 300]}>
             <FAQ />
           </Box>
           </GridItem>

@@ -33,3 +33,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # fourth-wave
+
+
+Deployment fixes - 
+next.config.js - set swcMinify: false
+added to devDependencies - "node-pre-gyp": "0.12.0"
+added -   "peerDependencies": {
+    "react": "^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0"
+  },
+  added -  "engines" : { 
+    "npm" : "8.14.0",
+    "node" : "14.18.1"
+  }
+  

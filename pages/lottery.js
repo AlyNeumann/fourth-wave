@@ -24,7 +24,7 @@ export default function Lottery() {
           Play the Lottery!
         </h1>
         <p className={styles.description}>
-          Welcome Player
+          Welcome Player - WARNING - This app is still running on the testnet!
         </p>
         {!state.user ? 'Please connect your wallet to play' : `${state.user}`}
         {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}

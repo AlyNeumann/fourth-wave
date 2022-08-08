@@ -1,8 +1,8 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import WalletLink from 'walletlink';
-// import Torus from "@toruslabs/torus-embed";
-// import Fortmatic from "fortmatic";
+import Torus from "@toruslabs/torus-embed";
+import Fortmatic from "fortmatic";
 import Portis from "@portis/web3";
 // import Authereum from "authereum";
 // import ethProvider from "eth-provider";
@@ -21,25 +21,19 @@ export const Providers = {
     1: "https://rpc-mumbai.matic.today",
     2: "https://polygon-rpc.com",
   },
-  walletlink: {
-    package: CoinbaseWalletSDK, // Required
-    options: {
-      appName: "Web 3 Modal Demo", // Required
-      infuraId: process.env.INFURA_ID // Required unless you provide a JSON RPC url; see `rpc` below
-    }
-  },
+  // walletlink: {
+  //   package: CoinbaseWalletSDK, // Required
+  //   options: {
+  //     appName: "Web 3 Modal Demo", // Required
+  //     infuraId: process.env.INFURA_ID // Required unless you provide a JSON RPC url; see `rpc` below
+  //   }
+  // },
   walletconnect: {
     package: WalletConnectProvider, // required
     options: {
-      infuraId: process.env.INFURA_ID // required
+      infuraId: process.env.NEXT_PUBLIC_IINFURA_ID // required
     }
   },
-  // walletconnect: {
-  //   package: WalletConnectProvider, // required
-  //   options: {
-  //     infuraId: process.env.NEXT_PUBLIC_INFURA_ID// required
-  //   }
-  // },
   coinbasewallet: {
     package: CoinbaseWalletSDK, // Required
     options: {
@@ -53,42 +47,42 @@ export const Providers = {
   binancechainwallet: {
     package: true
   },
-  // walletlink: {
-  //   package: WalletLink,
-  //   options: {
-  //     appName: "Fourth Wave",
-  //     infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
-  //     chainId: 80001,
-  //     darkMode: true,
-  //     appLogoUrl: null
-  //   }
-  // },
-  // torus: {
-  //   package: Torus, // required
-  //   options: {
-  //     networkParams: {
-  //       chainId: 80001, // optional
-  //     },
-  //     config: {
-  //       buildEnv: "development" // optional
-  //     }
-  //   }
-  // },
-  // fortmatic: {
-  //   package: Fortmatic, // required
-  //   options: {
-  //     key: process.env.NEXT_PUBLIC_FORMATIC_KEY, // required
-  //     network: {
-  //       chainId: 80001
-  //     } // if we don't pass it, it will default to localhost:8454
-  //   }
-  // },
-  // portis: {
-  //   package: Portis, // required
-  //   options: {
-  //     id: process.env.NEXT_PUBLIC_PORTIS_ID // required
-  //   }
-  // },
+  walletlink: {
+    package: WalletLink,
+    options: {
+      appName: "Fourth Wave",
+      infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
+      chainId: 80001,
+      darkMode: true,
+      appLogoUrl: null
+    }
+  },
+  torus: {
+    package: Torus, // required
+    options: {
+      networkParams: {
+        chainId: 80001, // optional
+      },
+      config: {
+        buildEnv: "development" // optional
+      }
+    }
+  },
+  fortmatic: {
+    package: Fortmatic, // required
+    options: {
+      key: process.env.NEXT_PUBLIC_FORMATIC_API_KEY_PROD, // required
+      network: {
+        chainId: 80001
+      } // if we don't pass it, it will default to localhost:8454
+    }
+  },
+  portis: {
+    package: Portis, // required
+    options: {
+      id: process.env.NEXT_PUBLIC_PORTIS__PROJECT_ID // required
+    }
+  },
   // authereum: {
   //   package: Authereum // required
   // },
@@ -145,10 +139,10 @@ export const Providers = {
   //     infuraId:  process.env.NEXT_PUBLIC_INFURA_ID// required
   //   }
   // },
-  // bitkeep: {
-  //   package: true
-  // },
-  // starzwallet: {
-  //   package: true
-  // }
+  bitkeep: {
+    package: true
+  },
+  starzwallet: {
+    package: true
+  }
 };
