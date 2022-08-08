@@ -172,7 +172,6 @@ export default function Wallet(props) {
   const connectWallet = async () => {
     try {
       const web3Modal = new Web3Modal({
-        network: "matic",
         theme: {
           background: "rgb(178, 217, 210)",
           main: "rgb(61, 77, 74)",
