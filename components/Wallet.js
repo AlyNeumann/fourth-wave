@@ -298,7 +298,7 @@ export default function Wallet(props) {
         </div>) : ''}</div>
         {(state.web3 && props.page == 'lottery') ? <PricePicker amount={amount} web3={state.web3} handleAmount={handleAmount} /> : ''}
         <div>{error}</div>
-        <div>{modalClose ? "Please your connect wallet!" : ""}</div>
+        <div>{(modalClose && !isConnected) ? "Please your connect wallet!" : ""}</div>
         <div>{donated ? 'thanks for your donation' : ''}</div>
       </div>
     </div>

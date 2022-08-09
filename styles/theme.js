@@ -25,6 +25,8 @@ const theme = extendTheme({
     //  900: '#128282'
     // },
   },
+  initialColorMode: 'light', 
+  useSystemColorMode: false,
   fonts: {
     heading: `'Open Sans', sans-serif`,
     body: `'Josefin Sans', sans-serif`,

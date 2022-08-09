@@ -6,11 +6,10 @@ export default function Nav() {
 
   return (
     <Flex minWidth='max-content' alignItems='center' gap='2'>
-      <Box p='2'>
-        {/* <Heading size='md'>Chakra App</Heading> */}
-        <Tooltip label="Home" aria-label='A tooltip'>
+      <Box p='2' mt='2'>
+        <Tooltip label="Home" aria-label='A tooltip' w='100%' alignItems='left' >
           <Link href="/">
-            <Image src="/images/fourthwave_Nav.png" alt="Fourth Wave Logo" width="100%" height='50%' />
+            <Image src="/images/FourthWaveNavLogo_Transparent.png" alt="Fourth Wave Logo" width="100%" height='50%'/>
           </Link>
         </Tooltip>
       </Box>

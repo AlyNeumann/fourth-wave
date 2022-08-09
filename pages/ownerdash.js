@@ -30,7 +30,7 @@ export default function Dash() {
         <span className={styles.logo}>
           <Link href="/" passHref>
             <a>
-              <Image src="/images/FourthWave_Logo.png" alt="Vercel Logo" width={72} height={72} />
+              <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
             </a>
           </Link>
         </span>

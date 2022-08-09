@@ -9,7 +9,6 @@ import '@fontsource/open-sans/700.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-
     <ChakraProvider theme={theme}>
       <Provider>
         <Component {...pageProps} />
