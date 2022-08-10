@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { Grid, GridItem, Button, Box } from '@chakra-ui/react';
+import React from 'react';
+import { Button } from '@chakra-ui/react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css'
 
 export default function Thankyou() {
@@ -32,14 +31,5 @@ export default function Thankyou() {
                             value="aunty">Home</Button>
                             </Link>
       </main>
-      <footer className={styles.footer}>
-        <span className={styles.logo}>
-          <Link href="/" passHref>
-            <a>
-              <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
-            </a>
-          </Link>
-        </span>
-      </footer>
     </div>)
 }

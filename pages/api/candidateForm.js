@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     const result = await formsCollection.insertOne(forms)
     console.log(result)
     // return res.status(200).send(result);
-    return res.redirect(307, '/thankyou')
+    return res.redirect(302, '/thankyou')
 
   } catch (e) {
     console.error(e)
