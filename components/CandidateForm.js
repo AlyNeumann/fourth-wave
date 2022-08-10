@@ -7,7 +7,7 @@ export default function CandidateForm() {
     const { state, dispatch } = useContext(Context);
 
     return (
-            <form action="/api/candidateForm" method="post">
+            <form action="/api/candidateForm" method="post" spellcheck="false" >
                 <Text fontSize='3xl' color='teal.600'>Candidate Application</Text>
                 <Grid h="550px" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0'>
@@ -45,7 +45,7 @@ export default function CandidateForm() {
                     </Checkbox>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' >
-                    <label htmlFor="wallet">User Wallet: </label>
+                    <label htmlFor="wallet" pointeEvents="none">User Wallet: </label>
                     <input type="text" id="wallet" name="wallet" value={state.user}/>
                 </GridItem>
                 <GridItem rowSpan={4} colSpan={4} p="2"bg='purple.50' borderRadius='0 0 15px 15px'>

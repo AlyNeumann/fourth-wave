@@ -31,14 +31,14 @@ export const Providers = {
   walletconnect: {
     package: WalletConnectProvider, // required
     options: {
-      infuraId: process.env.NEXT_PUBLIC_INFURA_ID // required
+      infuraId: process.env.NEXT_PUBLIC_INFURA_KEY // required
     }
   },
   coinbasewallet: {
     package: CoinbaseWalletSDK, // Required
     options: {
       appName: "Fourth Wave", // Required
-      infuraId: process.env.NEXT_PUBLIC_INFURA_ID, // Required
+      infuraId: process.env.NEXT_PUBLIC_INFURA_KEY, // Required
       rpc: "", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 80001, // Optional. It defaults to 1 if not provided
       darkMode: false // Optional. Use dark theme, defaults to false
@@ -51,7 +51,7 @@ export const Providers = {
     package: WalletLink,
     options: {
       appName: "Fourth Wave",
-      infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
+      infuraId: process.env.NEXT_PUBLIC_INFURA_KEY,
       chainId: 80001,
       darkMode: true,
       appLogoUrl: null
@@ -60,23 +60,18 @@ export const Providers = {
   torus: {
     package: Torus, // required
     options: {
-      networkParams: {
-        chainId: 80001, // optional
-      },
-      config: {
-        buildEnv: "development" // optional
-      }
     }
   },
-  fortmatic: {
-    package: Fortmatic, // required
-    options: {
-      key: process.env.NEXT_PUBLIC_FORMATIC_API_KEY_PROD, // required
-      network: {
-        chainId: 80001
-      } // if we don't pass it, it will default to localhost:8454
-    }
-  },
+  // fortmatic: {
+  //   package: Fortmatic, // required
+  //   options: {
+  //     key: process.env.NEXT_PUBLIC_FORMATIC_API_KEY_TEST, // required
+  //     network: {
+  //       rpcUrl: 'https://rpc-mumbai.matic.today',
+  //       chainId: 80001
+  //   }
+  //   }
+  // },
   portis: {
     package: Portis, // required
     options: {
@@ -136,7 +131,7 @@ export const Providers = {
   // web3auth: {
   //   package: Web3Auth, // required
   //   options: {
-  //     infuraId:  process.env.NEXT_PUBLIC_INFURA_ID// required
+  //     infuraId:  process.env.NEXT_PUBLIC_INFURA_KEY// required
   //   }
   // },
   bitkeep: {

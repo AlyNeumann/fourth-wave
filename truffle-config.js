@@ -32,24 +32,6 @@ const infura_key = process.env.NEXT_PUBLIC_INFURA_KEY;
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-//new ones - 
-          //   "https://polygon-mainnet.infura.io/v3/659123dd11294baf8a294d7a11cec92c"
-          // ],
-          // "Mumbai": [
-          //     "https://polygon-mumbai.infura.io/v3/d65858b010d249419cf8687eca12b094",
-          //     "https://polygon-mumbai.infura.io/v3/d74bd8586b9e44449cef131d39ceeefb",
-
-//const INFURA_KEY='84842078b09946638c03157f83405213' OR INFURA_API_KEY = '9aa3d95b3bc440fa88ea12eaa4456161' 
-//`https://polygon-mumbai.infura.io/v3/${INFURA_KEY}` 
-// "https://mainnet.infura.io/v3/${INFURA_API_KEY}",
-// 			"wss://mainnet.infura.io/ws/v3/${INFURA_API_KEY}",
-// 			"https://api.mycryptoapi.com/eth",
-// 			"https://matic-mumbai.chainstacklabs.com",
-// 			"https://rpc-mumbai.maticvigil.com",
-// 			"https://matic-testnet-archive-rpc.bwarelabs.com"
-//mainnet key - 395c09a1d60042e2bcb49522b34fcb4e
-//arbitrum - 'https://arbitrum-mainnet.infura.io/v3/98571ac136f64bd3bd6fd295fc674ced'
-
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
