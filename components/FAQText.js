@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 export default function WhitePaperText() {
 
     return (
-        <Box color='teal.700' pt="30px">
+        <Box color='teal.700' pt="10px">
             <p className={styles.whitepapertitle}>
                 What is Fourth Wave DAO?
             </p>

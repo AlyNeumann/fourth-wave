@@ -20,7 +20,7 @@ export default function FAQ() {
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader color='purple.500'>Frequently Asked Questions</ModalHeader>
+          <ModalHeader pt={[200, 150, 50]} color='purple.500'>Frequently Asked Questions</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FAQText />

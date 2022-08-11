@@ -51,7 +51,7 @@ export default function About() {
             </a>
           </Box>
           </GridItem>
-          <GridItem colStart={4} colEnd={6} h='100' w='100%'><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[100, 200, 300]}>
+          <GridItem colStart={4} colEnd={6} h='100' w='100%'><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[100, 200, 300]} >
             <FAQ />
           </Box>
           </GridItem>
