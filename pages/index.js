@@ -60,11 +60,19 @@ export default function Home() {
           </Box>
           </GridItem>
         </Grid>
+        <Link href="/donations">
+          <Button color="teal.600"
+            variant="ghost"
+            padding="2px"
+            marginTop={['30%', '15%', '5%']}
+            whiteSpace='normal'
+            size="lg">Donate to our Crowd Funding Campaign by clicking HERE</Button>
+        </Link>
         <Link href="/application">
           <Button color="teal.600"
             variant="ghost"
             padding="50px 10px 50px 10px"
-            marginTop="16%"
+            marginTop={['30%', '15%', '5%']}
             whiteSpace='normal'
             size="lg">Apply HERE to become a candidate in our governance system, or an aunty in our nextwork.</Button>
         </Link>

@@ -17,7 +17,7 @@ export default function Thankyou() {
       <Nav />
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Thank you, your application has been received!
+          Thank you!
         </h1>
         <Link href="/" passHref>
         <Button colorScheme="teal"

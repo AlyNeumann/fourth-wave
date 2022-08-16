@@ -6,7 +6,8 @@ export default function Nav() {
 
   return (
     <Flex minWidth='max-content' alignItems='center' gap='2'>
-      <Box p='2' mt='2'>
+      <Box display='flex' w={['70%', '85%', '100%']}>
+      <Box pt='2' pr='20px' mt='2'>
         <Tooltip label="Home" aria-label='A tooltip' w='100%' alignItems='left' >
           <Link href="/">
             <Image src="/images/FourthWaveNavLogo_Transparent.png" alt="Fourth Wave Logo" width="100%" height='50%'/>
@@ -14,7 +15,7 @@ export default function Nav() {
         </Tooltip>
       </Box>
       <Spacer />
-      <ButtonGroup gap='2'>
+      <ButtonGroup gap='2' pt='20px' w={[100, 200, 300]}>
       <Link href="/about">
         <Button colorScheme='teal'>About</Button>
         </Link>
@@ -22,6 +23,7 @@ export default function Nav() {
         <Button colorScheme='teal'>Lottery</Button>
         </Link>
       </ButtonGroup>
+      </Box>
     </Flex>
   )
 }

@@ -12,7 +12,7 @@ export default function AuntyForm() {
             {/* <p>All information submitted to Fourth Wave will be kept confidential.</p> */}
             <Grid h="550px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0' w="100%">
-                    <label htmlFor="first ">First Name: </label>
+                    <label htmlFor="first">First Name: </label>
                     <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" />
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>

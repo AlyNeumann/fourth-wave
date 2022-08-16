@@ -13,6 +13,9 @@ const nextConfig = {
     unknownContextCritical: false,
     unknownContextRegExp: /^.\/.*$/
   },
+  images: {
+    domains: ['d1wqzb5bdbcre6.cloudfront.net']
+  }
 }
 
 module.exports = nextConfig
