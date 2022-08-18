@@ -57,7 +57,7 @@ module.exports = {
     matic: {
       provider: () => new HDWalletProvider({
         privateKeys: private_keys, 
-        providerOrUrl: `polygon-mumbai.infura.io/v3/${infura_key}`,
+        providerOrUrl: `https://polygon-mumbai.infura.io/v3/${infura_key}`,
         numberOfAddresses: 1
       }),
       network_id: 80001,

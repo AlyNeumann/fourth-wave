@@ -44,7 +44,7 @@ export default function CreditDonate() {
                     </select>
                 </GridItem>
                 {paymentType === 'subscription' ? (
-                    <GridItem colStart={4} colEnd={6}> <Box display='flex' wrap>
+                    <GridItem colStart={4} colEnd={6}> <Box display='flex' >
                         <label htmlFor="first">$10</label>
                         <input type='radio' id="nametext" name="amount" value='price_1LX8QAA5VujM1cWrw00Es00x'></input>
                         <label htmlFor="second">$50</label>
@@ -57,7 +57,7 @@ export default function CreditDonate() {
                         <input type='radio' id="nametext" name="amount" value='price_1LX8SwA5VujM1cWroy1aJlpQ'></input>
                         </Box>
                     </GridItem>
-                ) : (<GridItem colStart={4} colEnd={6}> <Box display='flex' wrap>
+                ) : (<GridItem colStart={4} colEnd={6}> <Box display='flex' >
                     <label htmlFor="first">$10</label>
                     <input type='radio' id="nametext" name="amount" value='price_1LX8QAA5VujM1cWr2wZJrCF9'></input>
                     <label htmlFor="second">$50</label>
