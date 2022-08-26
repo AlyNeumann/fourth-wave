@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
+import styles from '../styles/Home.module.css';
   
 export default function VideoPlayer(){
   return (
     <div>
       <ReactPlayer 
+      className={styles.reactplayer}
       playing="true"
       controls="true"
       playIcon="true"

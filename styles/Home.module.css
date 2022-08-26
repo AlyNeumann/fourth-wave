@@ -132,6 +132,15 @@
   line-height: 1.5;
 }
 
+.playerwrapper {
+  position: relative;
+}
+
+
+.reactplayer {
+height: auto !important;
+width: auto !important;
+}
 /* 
 .lotterybox {
   background-color: #f1f1f1;

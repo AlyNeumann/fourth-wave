@@ -48,4 +48,5 @@ added -   "peerDependencies": {
   }
 
   //locally - "node": "14.18.1"
+  //vercel - "node": "16.15.0"
   
