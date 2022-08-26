@@ -50,14 +50,14 @@ export default function AcceptedApplicationDisplayBoxes(props) {
 
                             <VStack>
                                 {props.aunties && props.aunties.map((data, i) => {
-                                    return (<Box as='span' ml='2' color='gray.600' fontSize='sm'>
-                                        <IsolatedModal key={i} data={data} />
+                                    return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i}>
+                                        <IsolatedModal data={data} />
                                     </Box>)
 
                                 })}
                                 {props.candidates && props.candidates.map((data, i) => {
                                     return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i}>
-                                        <IsolatedModal key={i} data={data} />
+                                        <IsolatedModal data={data} />
                                     </Box>)
                                 })}
 

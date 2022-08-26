@@ -8,7 +8,6 @@ import Wallet from '../components/Wallet';
 import styles from '../styles/Home.module.css';
 import { Button } from '@chakra-ui/react';
 import ApplicationGrid from '../components/ApplicationGrid';
-import ApplicationDisplayBoxes from '../components/ApplicationDisplayBoxes';
 
 export async function getStaticProps(context) {
   const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
@@ -25,7 +24,6 @@ export async function getStaticProps(context) {
 
 
 export default function VetterDash({aunties, candidates}) {
-    //TODO: make scroll boxes for applications - modal view for popup?
   const { state, dispatch } = useContext(Context);
 
   const owner = process.env.NEXT_PUBLIC_OWNER
@@ -47,7 +45,7 @@ export default function VetterDash({aunties, candidates}) {
         <Button>Mint NFT</Button>
       </main>
       <footer className={styles.footer}>
-        <span className={styles.logo}>
+        <span>
           <Link href="/" passHref>
             <a>
               <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
