@@ -13,7 +13,7 @@ export default function CandidateForm() {
     return (
             <form action="/api/candidateForm" method="post" spellCheck="false" >
                 <Text fontSize='3xl' color='teal.600'>Candidate Application</Text>
-                <Grid h="550px" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
+                <Grid  h="575px" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0'>
                 <label htmlFor="first " >First Name: </label>
                 <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" />
