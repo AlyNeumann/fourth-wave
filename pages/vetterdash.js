@@ -9,21 +9,22 @@ import styles from '../styles/Home.module.css';
 // import { Button } from '@chakra-ui/react';
 // import ApplicationGrid from '../components/ApplicationGrid';
 
-export async function getStaticProps(context) {
-  const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
-  const auntyjson = await auntyApplications.json();
-  const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
-  const candidatejson = await candidateApplications.json();
-  return {
-    props: {
-      aunties: auntyjson,
-      candidates: candidatejson
-    },
-  };
-}
+// export async function getStaticProps(context) {
+//   const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
+//   const auntyjson = await auntyApplications.json();
+//   const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
+//   const candidatejson = await candidateApplications.json();
+//   return {
+//     props: {
+//       aunties: auntyjson,
+//       candidates: candidatejson
+//     },
+//   };
+// }
 
 
 export default function VetterDash({aunties, candidates}) {
+  //TODO: to fix error, use useEffect to load data then pass to Application component
   // const { state, dispatch } = useContext(Context);
 
   // const owner = process.env.NEXT_PUBLIC_OWNER
