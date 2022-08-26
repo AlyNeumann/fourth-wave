@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { Context } from "../context/context";
+// import { Context } from "../context/context";
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import Head from 'next/head';
 import Image from 'next/image';
-import Wallet from '../components/Wallet';
+// import Wallet from '../components/Wallet';
 import styles from '../styles/Home.module.css';
-import { Button } from '@chakra-ui/react';
-import ApplicationGrid from '../components/ApplicationGrid';
+// import { Button } from '@chakra-ui/react';
+// import ApplicationGrid from '../components/ApplicationGrid';
 
 export async function getStaticProps(context) {
   const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
@@ -24,9 +24,9 @@ export async function getStaticProps(context) {
 
 
 export default function VetterDash({aunties, candidates}) {
-  const { state, dispatch } = useContext(Context);
+  // const { state, dispatch } = useContext(Context);
 
-  const owner = process.env.NEXT_PUBLIC_OWNER
+  // const owner = process.env.NEXT_PUBLIC_OWNER
   return (
     <div className={styles.container}>
       <Head>
@@ -39,10 +39,10 @@ export default function VetterDash({aunties, candidates}) {
         <h1 className={styles.title}>
           Time to approve some applications! 
         </h1>
-        <Wallet owner={owner} />
+        {/* <Wallet owner={owner} />
         <ApplicationGrid aunties={aunties} candidates={candidates}/>
         <Button>Approve Application</Button>
-        <Button>Mint NFT</Button>
+        <Button>Mint NFT</Button> */}
       </main>
       <footer className={styles.footer}>
         <span>

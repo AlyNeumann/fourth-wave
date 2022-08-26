@@ -92,7 +92,7 @@ export default function Donations() {
             </main>
 
             <footer className={styles.footer}>
-                <span className={styles.logo}>
+                <span>
                     <Link href="/" passHref>
                         <a>
                             <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />

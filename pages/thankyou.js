@@ -20,16 +20,16 @@ export default function Thankyou() {
           Thank you!
         </h1>
         <Link href="/" passHref>
-        <Button colorScheme="teal"
-                            variant="ghost"
-                            size="lg"
-                            bg='purple.100'
-                            whiteSpace='normal'
-                            w='50%'
-                            h='20%'
-                            p='2%'
-                            value="aunty">Home</Button>
-                            </Link>
+          <Button colorScheme="teal"
+            variant="ghost"
+            size="lg"
+            bg='purple.100'
+            whiteSpace='normal'
+            w='50%'
+            h='20%'
+            p='2%'
+            value="aunty">Home</Button>
+        </Link>
       </main>
     </div>)
 }

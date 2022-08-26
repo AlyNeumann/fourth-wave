@@ -1,6 +1,7 @@
 import { Link, Tooltip, Flex, Box, Spacer, Button, ButtonGroup } from '@chakra-ui/react'
-import styles from '../styles/Home.module.css'
-import Image from 'next/image'
+import styles from '../styles/Home.module.css';
+import Image from 'next/image';
+// import Link from 'next/link';
 
 export default function Nav() {
 

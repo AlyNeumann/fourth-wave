@@ -79,12 +79,12 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <span className={styles.logo}>
-          <Link href="/" passHref>
+        <span>
+          {/* <Link href="/" passHref>
             <a>
             <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
             </a>
-          </Link>
+          </Link> */}
         </span>
       </footer>
     </div>
