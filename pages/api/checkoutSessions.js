@@ -2,8 +2,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 //TODO: add another thank you page to re direct to
 
 export default async function handler(req, res) {
-
   const {paymentType, amount} = req.body;
+  
   if (req.method === 'POST') {
     try {
       // Create Checkout Sessions from body params.

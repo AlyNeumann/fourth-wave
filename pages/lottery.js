@@ -7,9 +7,11 @@ import Wallet from '../components/Wallet';
 import LotteryGrid from '../components/LotteryGrid';
 import Link from 'next/link';
 import Nav from '../components/Nav'
+import { Button } from '@chakra-ui/react'
 
 export default function Lottery() {
   const { state, dispatch } = useContext(Context);
+  let url = `https://widget.onramper.com?defaultCrypto=MATIC&color=2e7573&defaultFiat=CAD&apiKey=${process.env.NEXT_PUBLIC_ON_RAMP_API_KEY}`
 
   return (
     <div className={styles.container}>
@@ -29,6 +31,12 @@ export default function Lottery() {
         {!state.user ? 'Please connect your wallet to play' : `Account succesfully connected`}
         {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}
         <LotteryGrid />
+        <p className={styles.description}>
+          Need to purchase crypto?
+        </p>
+        <Button>
+        <a href={url} target="_blank">Buy crypto</a>
+        </Button>
       </main>
 
       <footer className={styles.footer}>

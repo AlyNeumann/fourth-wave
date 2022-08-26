@@ -48,7 +48,7 @@ export default function CreditDonate() {
                         <label htmlFor="first">$10</label>
                         <input type='radio' id="nametext" name="amount" value='price_1LX8QAA5VujM1cWrw00Es00x'></input>
                         <label htmlFor="second">$50</label>
-                        <input type='radio' id="nametext" name="amount" value='price_1LX8RdA5VujM1cWrhlDmhW9z' checked></input>
+                        <input type='radio' id="nametext" name="amount" value='price_1LX8RdA5VujM1cWrhlDmhW9z' defaultChecked></input>
                         <label htmlFor="third">$100</label>
                         <input type='radio' id="nametext" name="amount" value='price_1LX8SwA5VujM1cWroy1aJlpQ'></input>
                         <label htmlFor="second">$250</label>
@@ -61,7 +61,7 @@ export default function CreditDonate() {
                     <label htmlFor="first">$10</label>
                     <input type='radio' id="nametext" name="amount" value='price_1LX8QAA5VujM1cWr2wZJrCF9'></input>
                     <label htmlFor="second">$50</label>
-                    <input type='radio' id="nametext" name="amount" value='price_1LX8RdA5VujM1cWr5LCbB4lH' checked></input>
+                    <input type='radio' id="nametext" name="amount" value='price_1LX8RdA5VujM1cWr5LCbB4lH' defaultChecked></input>
                     <label htmlFor="third">$100</label>
                     <input type='radio' id="nametext" name="amount" value='price_1LX8SwA5VujM1cWrM2DMAUlU'></input>
                     <label htmlFor="second">$250</label>

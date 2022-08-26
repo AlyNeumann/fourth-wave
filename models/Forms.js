@@ -27,12 +27,24 @@ var formdata = new Schema({
     socialother: {
         type: String
     },
+    references: {
+        type: String,
+        required: true
+    },
     reason: {
+        type: String,
+        required: true
+    },
+    age: {
         type: String,
         required: true
     },
     wallet: {
         type: String,
+    },
+    status: {
+        type: String,
+        required: true
     },
     time: {
         type: Date,

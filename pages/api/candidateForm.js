@@ -2,8 +2,8 @@ import clientPromise from '../../lib/mongodb-connect';
 import Forms from '../../models/Forms';
 
 export default async function handler(req, res) {
-
-  const formType = 'candidate'
+  const formType = 'candidate';
+  const status = "new";
 
   const {first,
     last,
@@ -11,17 +11,22 @@ export default async function handler(req, res) {
     twitter, 
     facebook,
     socialother,
+    references,
     reason, 
+    age,
     wallet} = req.body;
   try {
     if (!first || !last || !email) {
-      return res.status(400).json({ data: 'Please enter your first AND last name' })
+      return res.status(400).json({ data: 'Please enter your first AND last name' });
     }
     if (!email) {
-      return res.status(400).json({ data: 'Please enter your email address' })
+      return res.status(400).json({ data: 'Please enter your email address' });
+    }
+    if (!references) {
+      return res.status(400).json({ data: 'Please enter at least one reference' });
     }
     if (!twitter && !facebook && !socialother) {
-      return res.status(400).json({ data: 'Please enter at least one social media account' })
+      return res.status(400).json({ data: 'Please enter at least one social media account' });
     }
 
     const forms= new Forms({
@@ -32,22 +37,28 @@ export default async function handler(req, res) {
       twitter, 
       facebook,
       socialother,
+      references,
       reason, 
-      wallet
+      age,
+      wallet,
+      status
     });
 
-    const client = await clientPromise
-    const db = client.db("FourthWave")
+    const client = await clientPromise;
+    const db = client.db("FourthWave");
 
     const formsCollection = db.collection("CandidateForms");
-    console.log(formsCollection)
-    const result = await formsCollection.insertOne(forms)
-    console.log(result)
-    // return res.status(200).send(result);
-    return res.redirect(302, '/thankyou')
+    const isDuplicate = await formsCollection.findOne({ "email": email });
+
+    if (isDuplicate) {
+      return res.status(200).send('duplicate email');
+    }
+
+    await formsCollection.insertOne(forms);
+    return res.redirect(302, '/thankyou');
 
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       props: { isConnected: false },
     }

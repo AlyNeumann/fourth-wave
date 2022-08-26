@@ -1,6 +1,5 @@
 import { Box, Badge, VStack } from '@chakra-ui/react'
 import * as Scroll from 'react-scroll';
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 export default function LotteryBoxes(props) {
 

@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from "../context/context";
 import { Grid, GridItem, Button, Checkbox, Text } from '@chakra-ui/react'
 
 export default function CandidateForm() {
 
+    const [age, setAge] = useState("35-44")
     const { state, dispatch } = useContext(Context);
+    const handleAge = (e) => {
+        setAge(e.target.value)
+    }
 
     return (
-            <form action="/api/candidateForm" method="post" spellcheck="false" >
+            <form action="/api/candidateForm" method="post" spellCheck="false" >
                 <Text fontSize='3xl' color='teal.600'>Candidate Application</Text>
                 <Grid h="550px" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0'>
@@ -35,10 +39,26 @@ export default function CandidateForm() {
                     <input type="text" id="socialtext" name="socialother" />
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
+                    <label htmlFor="last ">References: </label>
+                    <input type="text" id="socialtext" name="references" required />
+                </GridItem>
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                 <label htmlFor="last ">Reasons for applying: </label>
                 <input type="text" id="reasonstext" name="reason" required />
                 </GridItem>
-
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
+                <label htmlFor="age ">Age: </label>
+                    <select value={age} onChange={handleAge} name="age">
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45-54">45-54</option>
+                        <option value="55-64">55-64</option>
+                        <option value="65-74">65-74</option>
+                        <option value="75-84">75-84</option>
+                        <option value="85-94">85-94</option>
+                    </select>
+                </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <Checkbox size='lg' colorScheme='purple' defaultChecked>
                         By checking this box, you are agreeing to be contacted by the Fourth Wave Team.
