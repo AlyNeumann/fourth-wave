@@ -3,13 +3,12 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Grid, GridItem, Box, Button } from '@chakra-ui/react'
 import FAQ from '../components/FAQ';
-import ChakraNextLink from '../components/Link';
+import Link from 'next/link';
+// import ChakraNextLink from '../components/Link';
 import Nav from '../components/Nav'
 
 
 export default function About() {
-  let imageWith = 72;
-  let imageHeight = 72;
 
   return (
     <div className={styles.container}>
@@ -63,9 +62,11 @@ export default function About() {
 
       <footer className={styles.footer}>
         <span>
-        <ChakraNextLink href="/">
-            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
-          </ChakraNextLink>
+          <Link href="/" passHref>
+            <a>
+            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
+            </a>
+          </Link>
         </span>
       </footer>
     </div>

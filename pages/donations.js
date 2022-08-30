@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image';
 import Nav from '../components/Nav'
 import Link from 'next/link';
-import ChakraNextLink from '../components/Link';
+// import ChakraNextLink from '../components/Link';
 import styles from '../styles/Home.module.css'
 import { Grid, GridItem, Box, Button } from '@chakra-ui/react'
 import CreditDonate from '../components/CreditDonate';
@@ -97,9 +97,14 @@ export default function Donations() {
 
             <footer className={styles.footer}>
                 <span>
-                    <ChakraNextLink href="/">
+                    <Link href="/" passHref>
+                        <a>
+                            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
+                        </a>
+                    </Link>
+                    {/* <ChakraNextLink href="/">
                         <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
-                    </ChakraNextLink>
+                    </ChakraNextLink> */}
                 </span>
             </footer>
         </div>

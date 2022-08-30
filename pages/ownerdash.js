@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Context } from "../context/context";
 import Link from 'next/link';
-import ChakraNextLink from '../components/Link';
+// import ChakraNextLink from '../components/Link';
 import Nav from '../components/Nav';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -32,9 +32,14 @@ export default function Dash() {
       </main>
       <footer className={styles.footer}>
         <span>
-        <ChakraNextLink href="/">
+        <Link href="/" passHref>
+            <a>
+            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
+            </a>
+          </Link>
+        {/* <ChakraNextLink href="/">
             <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
-          </ChakraNextLink>
+          </ChakraNextLink> */}
         </span>
       </footer>
     </div>)
