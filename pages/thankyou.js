@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
-import Link from 'next/link';
+import ChakraNextLink from '../components/Link';
 import Nav from '../components/Nav';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css'
@@ -19,7 +19,7 @@ export default function Thankyou() {
         <h1 className={styles.title}>
           Thank you!
         </h1>
-        <Link href="/" passHref>
+        <ChakraNextLink href="/">
           <Button colorScheme="teal"
             variant="ghost"
             size="lg"
@@ -29,7 +29,7 @@ export default function Thankyou() {
             h='20%'
             p='2%'
             value="aunty">Home</Button>
-        </Link>
+            </ChakraNextLink>
       </main>
     </div>)
 }

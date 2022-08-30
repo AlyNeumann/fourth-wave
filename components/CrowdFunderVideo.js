@@ -7,10 +7,10 @@ export default function VideoPlayer(){
     <div>
       <ReactPlayer 
       className={styles.reactplayer}
-      playing="true"
-      controls="true"
+      playing={true}
+      controls={true}
       playIcon="true"
-      url='https://fourth-wave.s3.amazonaws.com/Aly_Promo_1.mp4' />
+      url='https://fourth-wave.s3.amazonaws.com/Aly+Promo+For+reveiw+and+release.mp4' />
     </div>
   )
 }

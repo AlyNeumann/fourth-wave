@@ -8,14 +8,13 @@ const nextConfig = {
   compiler: {
     chakra: true,
   },
-  //this should stop the ethers library error but it's not for some reason....AH!
   webpack: {
     unknownContextCritical: false,
     unknownContextRegExp: /^.\/.*$/
   },
   images: {
     domains: ['d1wqzb5bdbcre6.cloudfront.net']
-  }
+  },
 }
 
 module.exports = nextConfig

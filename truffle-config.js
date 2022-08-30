@@ -51,19 +51,22 @@ module.exports = {
     // options below to some value.
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
     matic: {
       provider: () => new HDWalletProvider({
         privateKeys: private_keys, 
-        providerOrUrl: `https://polygon-mumbai.infura.io/v3/${infura_key}`,
+        providerOrUrl: `https://polygon-mainnet.infura.io/v3/${infura_key}`,
+        // providerOrUrl: `https://polygon-mumbai.infura.io/v3/${infura_key}`,
         numberOfAddresses: 1
       }),
-      network_id: 80001,
+      // network_id: 80001,
+      network_id: 137,
       confirmations: 2,
       timeoutBlocks: 200,
-      skipDryRun: true
+      skipDryRun: true,
+      gasPrice: 31000000000,  // 20 gwei (in wei) (default: 100 gwei)
     },
     //"https://rpc-mumbai.matic.today"
     //

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css'
 import Wallet from '../components/Wallet';
 import { Grid, GridItem, Button, Box } from '@chakra-ui/react';
-import Link from 'next/link';
+import ChakraNextLink from '../components/Link';
 import Nav from '../components/Nav';
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
         <Wallet />
         <Grid templateColumns='repeat(5, 1fr)' gap={4}>
           <GridItem colSpan={2} h='100' w='100%' ><Box boxShadow='xl' p='6' bg='white' w={[120, 200, 300]}>
-            <Link href="/about">
+            <ChakraNextLink href="/about">
               <Button color="teal.600"
                 variant="ghost"
                 bg='purple.100'
@@ -43,11 +43,11 @@ export default function Home() {
                 h='100%'
                 p='5%'
                 size="lg">Read About Our Mission</Button>
-            </Link>
+                </ChakraNextLink>
           </Box>
           </GridItem>
           <GridItem colStart={4} colEnd={6} h='100' w='100%' ><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[120, 200, 300]}>
-            <Link href="/lottery">
+          <ChakraNextLink href="/lottery">
               <Button color="teal.600"
                 variant="ghost"
                 bg='purple.100'
@@ -56,35 +56,33 @@ export default function Home() {
                 h='100%'
                 p='5%'
                 size="lg">Play The Lottery Game!</Button>
-            </Link>
+            </ChakraNextLink>
           </Box>
           </GridItem>
         </Grid>
-        <Link href="/donations">
+        <ChakraNextLink href="/donations">
           <Button color="teal.600"
             variant="ghost"
             padding="2px"
             marginTop={['30%', '15%', '5%']}
             whiteSpace='normal'
             size="lg">Donate to our Crowd Funding Campaign by clicking HERE</Button>
-        </Link>
-        <Link href="/application">
+            </ChakraNextLink>
+        <ChakraNextLink href="/application">
           <Button color="teal.600"
             variant="ghost"
             padding="50px 10px 50px 10px"
             marginTop={['30%', '15%', '5%']}
             whiteSpace='normal'
             size="lg">Apply HERE to become a candidate in our governance system, or an aunty in our nextwork.</Button>
-        </Link>
+        </ChakraNextLink>
       </main>
 
       <footer className={styles.footer}>
         <span>
-          {/* <Link href="/" passHref>
-            <a>
+          <ChakraNextLink href="/">
             <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
-            </a>
-          </Link> */}
+          </ChakraNextLink>
         </span>
       </footer>
     </div>

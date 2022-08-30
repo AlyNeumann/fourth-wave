@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import Web3Modal from "web3modal";
 import Web3 from "web3";
-// import { ethers } from 'ethers';
 import { Providers } from "./Providers";
 import { Context } from "../context/context";
 import { Button } from "@chakra-ui/react";
@@ -95,7 +94,6 @@ export default function Wallet(props) {
     setRandomResult(randomResult);
   };
 
-
   const pickWinnerHandler = async () => {
     setError("");
     let address = state.user;
@@ -103,10 +101,11 @@ export default function Wallet(props) {
       await state.lotteryContract.methods.pickWinner().send({
         from: address,
         gas: 300000,
-        gasPrice: null,
+        gasPrice: 31000000000,
       });
       setSuccess(`Winner is being chosen....`);
     } catch (err) {
+      console.log(err)
       setError(err.message);
     }
   };
@@ -118,8 +117,8 @@ export default function Wallet(props) {
     try {
       await state.lotteryContract.methods.payWinner().send({
         from: address,
-        gas: 300000,
-        gasPrice: null,
+        gas: 500000,
+        gasPrice: 31000000000,
       });
       const winnerAddress = await contract.methods
         .lotteryHistory(lotteryId)
@@ -140,7 +139,7 @@ export default function Wallet(props) {
         from: address,
         value: amount,
         gas: 300000,
-        gasPrice: null,
+        gasPrice: 31000000000,
       });
       setDonated(true);
       setSuccess(`A donation. Nice.`);
@@ -157,7 +156,7 @@ export default function Wallet(props) {
         from: address,
         value: amount,
         gas: 300000,
-        gasPrice: null,
+        gasPrice: 31000000000,
       });
       updateState();
     } catch (err) {
@@ -199,6 +198,7 @@ export default function Wallet(props) {
 
       let accounts = await web3.eth.getAccounts()
       setAccount(accounts[0])
+
       setIsConnected(true);
       dispatch({
         type: "CONNECTED_WALLET",
@@ -207,6 +207,7 @@ export default function Wallet(props) {
 
       if (accounts[0] == process.env.NEXT_PUBLIC_OWNER) {
         setIsOwner(true);
+        console.log('is owner')
       }
 
       web3.currentProvider.on('accountsChanged', (newAccount) => {

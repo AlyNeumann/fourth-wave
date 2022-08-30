@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Context } from "../context/context";
 import Link from 'next/link';
+import ChakraNextLink from '../components/Link';
 import Nav from '../components/Nav';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -8,6 +9,9 @@ import Wallet from '../components/Wallet';
 import styles from '../styles/Home.module.css'
 
 export default function Dash() {
+
+  let imageWith = 72;
+  let imageHeight = 72;
 
   const { state, dispatch } = useContext(Context);
 
@@ -28,11 +32,9 @@ export default function Dash() {
       </main>
       <footer className={styles.footer}>
         <span>
-          <Link href="/" passHref>
-            <a>
-              <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
-            </a>
-          </Link>
+        <ChakraNextLink href="/">
+            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
+          </ChakraNextLink>
         </span>
       </footer>
     </div>)

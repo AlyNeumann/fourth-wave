@@ -16,10 +16,10 @@ contract Lottery is VRFConsumerBase {
 
     constructor()
         VRFConsumerBase(
-            0x8C7382F9D8f56b33781fE506E897a4F1e2d17255, // VRF coordinator
-            0x326C977E6efc84E512bB9C30f76E30c160eD06FB  // LINK token address
+            0x3d2341ADb2D31f1c5530cDC622016af293177AE0, // VRF coordinator
+            0xb0897686c545045aFc77CF20eC7A532E3120E0F1 // LINK token address
         ) {
-            keyHash = 0x6e75b569a01ef56d18cab6a8e71e6600d6ce853834d4a5748b720d06f878b3a4;
+            keyHash = 0xf86195cf7690c55907b2b611ebb7343a6f649bff128701cc542f0569e2c549da;
             fee = 0.0001 * 10 ** 18;    // 0.0001 LINK
 
             owner = payable(msg.sender);
@@ -67,7 +67,7 @@ contract Lottery is VRFConsumerBase {
         require(randomResult > 0, "source of randomness required before choosing winner");
         uint index = randomResult % players.length;
         
-        players[index].transfer(address(this).balance / 100 * 20);
+        players[index].transfer(address(this).balance / 100 * 50);
         owner.transfer(address(this).balance);
 
         lotteryHistory[lotteryId] = players[index];

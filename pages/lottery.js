@@ -6,10 +6,15 @@ import styles from '../styles/Home.module.css'
 import Wallet from '../components/Wallet';
 import LotteryGrid from '../components/LotteryGrid';
 import Link from 'next/link';
+import ChakraNextLink from '../components/Link';
 import Nav from '../components/Nav'
 import { Button } from '@chakra-ui/react'
 
 export default function Lottery() {
+
+  let imageWith = 72;
+  let imageHeight = 72;
+  
   const { state, dispatch } = useContext(Context);
   let url = `https://widget.onramper.com?defaultCrypto=MATIC&color=2e7573&defaultFiat=CAD&apiKey=${process.env.NEXT_PUBLIC_ON_RAMP_API_KEY}`
 
@@ -26,7 +31,7 @@ export default function Lottery() {
           Play the Lottery!
         </h1>
         <p className={styles.description}>
-          Welcome Player - WARNING - This app is still running on the testnet!
+          Welcome Player - We are officially live on the Mainnet!
         </p>
         {!state.user ? 'Please connect your wallet to play' : `Account succesfully connected`}
         {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}
@@ -41,11 +46,9 @@ export default function Lottery() {
 
       <footer className={styles.footer}>
         <span>
-          <Link href="/" passHref>
-            <a>
-            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
-            </a>
-          </Link>
+        <ChakraNextLink href="/">
+            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
+          </ChakraNextLink>
         </span>
       </footer>
     </div>
