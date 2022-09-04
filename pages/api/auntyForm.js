@@ -51,9 +51,7 @@ export default async function handler(req, res) {
     const isDuplicate = await formsCollection.findOne({ "email": email });
 
     if (isDuplicate) {
-
-      //TODO: make this pretty 
-      return res.status(200).send('duplicate email');
+      return res.redirect(302, '/duplicateemail');
     }
 
     await formsCollection.insertOne(forms);

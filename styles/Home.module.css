@@ -141,6 +141,10 @@
 height: auto !important;
 width: auto !important;
 }
+
+.socialicons {
+  margin-top: 50px;
+}
 /* 
 .lotterybox {
   background-color: #f1f1f1;

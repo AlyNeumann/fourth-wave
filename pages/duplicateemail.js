@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link';
 import SocialMediaIcons from '../components/SocialMediaIcons';
 
-export default function Thankyou() {
+export default function DuplicateEmail() {
 
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ export default function Thankyou() {
       <NavBar />
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Thank you!
+          Your previous application was already recieved.
         </h1>
         <Link href="/" passHref>
           <Button colorScheme="teal"
