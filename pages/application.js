@@ -113,9 +113,6 @@ export default function Application() {
                             <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
                         </a>
                     </Link>
-                    {/* <ChakraNextLink href="/">
-                        <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
-                    </ChakraNextLink> */}
                 </span>
             </footer>
         </div>

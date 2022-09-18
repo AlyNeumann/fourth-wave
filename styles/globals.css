@@ -49,3 +49,13 @@ input {
   font-size:14pt;
   width: 95%;
 }
+
+.mapboxgl-ctrl-attrib-inner {
+  visibility: hidden;
+}
+
+.map-container {
+overflow: hidden;
+  height: 150px;
+  width: 100%;
+}

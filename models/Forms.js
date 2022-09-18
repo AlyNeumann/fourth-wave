@@ -46,6 +46,12 @@ var formdata = new Schema({
         type: String,
         required: true
     },
+    telegramId: {
+        type: String
+    },
+    vetter: {
+        type:String 
+    },
     time: {
         type: Date,
         default: Date.now
@@ -54,6 +60,6 @@ var formdata = new Schema({
 
 mongoose.models = {};
 
-var User = mongoose.model('Forms', formdata);
+var Forms = mongoose.model('Forms', formdata);
 
-export default User;
+export default Forms;

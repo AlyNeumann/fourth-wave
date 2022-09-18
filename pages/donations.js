@@ -79,13 +79,13 @@ export default function Donations() {
                     Why does Fourth Wave need crowd funding?
                 </p>
                 <p className={styles.descriptionsm}>
-                    Although I have already begun coding the application, I am only one woman, and I need some help. I am looking to cover the first three months of our startup costs.
+                    We do not want to take on investors and lose control of our project, so I am looking to cover the first three months of our startup costs by donation only.
                 </p>
                 <p className={styles.descriptionsm}>
-                    I need a budget to hire a senior Solidity developer, a React Native developer, as well as someone qualified to help with marketing and content creation.
+                    I need a budget to pay for developers as well as someone qualified to help with marketing and content creation.
                 </p>
                 <p className={styles.descriptionsm}>
-                    Once we launch in three months, there will be no further crowd funding needed.
+                    Once we launch our token on November 1st, there will be no further crowd funding needed.
                 </p>
                 <p className={styles.descriptionsm}>
                     I only need your help with this first push to launch our MVP!

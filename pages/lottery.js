@@ -29,7 +29,10 @@ export default function Lottery() {
           Play the Lottery!
         </h1>
         <p className={styles.description}>
-          Welcome Player - We are officially live on the Mainnet!
+          Welcome Player - We are officially live on the Polygon Mainnet!
+        </p>
+        <p className={styles.descriptionsm}>
+          Enter our 50 / 50 lottery to support our Auntie Network and win big! 
         </p>
         {!state.user ? 'Please connect your wallet to play' : `Account succesfully connected`}
         {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}

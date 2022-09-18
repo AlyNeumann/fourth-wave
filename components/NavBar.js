@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
-
+import { Box, Flex, Text, Button, Stack, Link } from "@chakra-ui/react";
 
 import Logo from "./Logo";
 
