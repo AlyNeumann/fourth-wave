@@ -28,7 +28,7 @@ export default function AuntyForm() {
         <form action="/api/auntyForm" method="post" spellCheck="false">
             <Text fontSize='3xl' color='teal.600'>Aunty Application</Text>
             {/* <p>All information submitted to Fourth Wave will be kept confidential.</p> */}
-            <Grid h="575px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
+            <Grid h="650px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0' w="100%">
                     <label htmlFor="first">First Name: </label>
                     <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" maxLength="30"/>
@@ -83,7 +83,7 @@ export default function AuntyForm() {
                     <label htmlFor="wallet">User Wallet: </label>
                     <input type="text" id="wallet" name="wallet" value={state.user} readOnly />
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={4} bg='purple.50' pl="5%">
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <Reaptcha
                         sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
                         ref={captchaRef}
