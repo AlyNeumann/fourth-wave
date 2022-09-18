@@ -1,6 +1,7 @@
 import { Box, Badge, VStack } from '@chakra-ui/react'
 import * as Scroll from 'react-scroll';
 import { Modal, ModalContent, ModalOverlay, ModalFooter, ModalCloseButton, ModalHeader, ModalBody, Button, useDisclosure } from '@chakra-ui/react'
+import styles from '../styles/Home.module.css';
 
 export default function ApplicationDisplayBoxes(props) {
     let Element = Scroll.Element;
@@ -51,13 +52,13 @@ export default function ApplicationDisplayBoxes(props) {
                             <VStack>
                                 {props.aunties && props.aunties.map((data, i) => {
                                     return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i} >
-                                        <IsolatedModal key={i} data={data}/>
+                                        <IsolatedModal key={i} data={data} />
                                     </Box>)
 
                                 })}
                                 {props.candidates && props.candidates.map((data, i) => {
                                     return (<Box as='span' ml='2' color='gray.600' fontSize='sm' key={i} >
-                                        <IsolatedModal data={data}/>
+                                        <IsolatedModal data={data} />
                                     </Box>)
                                 })}
 
@@ -72,6 +73,7 @@ export default function ApplicationDisplayBoxes(props) {
 
 const IsolatedModal = ({ data }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    // console.log(data)
 
     const applicationStatusHandler = async (e) => {
         const status = e.target.value;
@@ -79,12 +81,35 @@ const IsolatedModal = ({ data }) => {
         const type = data.formType;
         const res = await fetch('http://localhost:3000/api/updateApplicationStatus', {
             method: 'post',
-            body: JSON.stringify({id, status, type})
+            body: JSON.stringify({ id, status, type })
+        })
+        const json = await res.json()
+        // console.log(json)
+        sendEmailHandler();
+        onClose();
+    }
+
+    const date = new Date(data.time).toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      });
+
+      console.log(date)
+
+    const sendEmailHandler = async () => {
+        const email = data.email;
+        const id = data._id;
+        const type = data.formType;
+        const res = await fetch('http://localhost:3000/api/email', {
+            method: 'post',
+            body: JSON.stringify({ email, id, type })
         })
         const json = await res.json()
         console.log(json)
         onClose();
     }
+
     return (
         <Box as="section">
             <Button onClick={onOpen} size="sm">
@@ -93,17 +118,29 @@ const IsolatedModal = ({ data }) => {
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader pt={[200, 150, 50]} color='purple.500'>Auntie Application Review</ModalHeader>
+                    {data.formType == "aunty" ? (<ModalHeader pt={[200, 150, 50]} color='purple.500'>Auntie Application Review</ModalHeader>) : (
+                        <ModalHeader pt={[200, 150, 50]} color='purple.500'>Candidate Application Review</ModalHeader>
+                    )}
                     <ModalCloseButton />
                     <ModalBody>
-                        <p>First Name: {data.first}</p>
-                        <p>Last Name: {data.last}</p>
-                        <p>Email: {data.email}</p>
-                        <p>Twitter: {data.twitter}</p>
-                        <p>Facebook: {data.facebook}</p>
-                        <p>Other Social Media: {data.socialother}</p>
-                        <p>Reasons for Applying: {data.reason}</p>
-                        <p>Date of Application: {data.time}</p>
+                        <p className={styles.descriptionsm}>FIRST NAME: {data.first}</p>
+                        <p className={styles.descriptionsm}>LAST NAME: {data.last}</p>
+                        <p className={styles.descriptionsm}>EMAIL: {data.email}</p>
+                        <a target="_blank" href={data.twitter} rel="noopener noreferrer">
+                        <p className={styles.descriptionsm}>TWITTER: </p>
+                        <p className={styles.hyperlink}>{data.twitter}</p>
+                        </a>
+                        <a target="_blank" href={data.facebook} rel="noopener noreferrer">
+                        <p className={styles.descriptionsm}>FACEBOOK: </p>
+                        <p className={styles.hyperlink}>{data.facebook}</p>
+                        </a>
+                        <a target="_blank" href={data.socialother} rel="noopener noreferrer">
+                        <p className={styles.descriptionsm}>OTHER: </p>
+                        <p className={styles.hyperlink}>{data.socialother}</p>
+                        </a>
+                        <p className={styles.descriptionsm}>REASONS FOR APPLYING: </p>
+                        <p className={styles.descriptionsm}>{data.reason}</p>
+                        <p className={styles.descriptionsm}>DATE OF APPLICATION: {date}</p>
                         <Button value="accept" onClick={applicationStatusHandler}>Accept</Button>
                         <Button value="reject" onClick={applicationStatusHandler}>Reject</Button>
                     </ModalBody>

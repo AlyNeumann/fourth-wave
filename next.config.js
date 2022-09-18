@@ -12,7 +12,12 @@ const nextConfig = {
   },
   webpack: {
     unknownContextCritical: false,
-    unknownContextRegExp: /^.\/.*$/
+    unknownContextRegExp: /^.\/.*$/,
+    target: 'node',
+    node: {
+      fs: 'empty',
+      net: 'empty',
+    }
   },
   images: {
     domains: ['d1wqzb5bdbcre6.cloudfront.net']

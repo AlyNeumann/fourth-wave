@@ -1,36 +1,47 @@
-import React, { useState, useContext } from 'react';
-// import { Context } from "../context/context";
+import React, { useState, useContext, useEffect} from 'react';
+import { Context } from "../context/context";
 import Link from 'next/link';
 import NavBar from '../components/NavBar';
 import Head from 'next/head';
 import Image from 'next/image';
-// import Wallet from '../components/Wallet';
+import Wallet from '../components/Wallet';
 import styles from '../styles/Home.module.css';
-// import { Button } from '@chakra-ui/react';
-// import ApplicationGrid from '../components/ApplicationGrid';
+import ApplicationGrid from '../components/ApplicationGrid';
 
-// export async function getStaticProps(context) {
-//   const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
-//   const auntyjson = await auntyApplications.json();
-//   const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
-//   const candidatejson = await candidateApplications.json();
-//   return {
-//     props: {
-//       aunties: auntyjson,
-//       candidates: candidatejson
-//     },
-//   };
-// }
+export async function getStaticProps(context) {
+  const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
+  const auntyjson = await auntyApplications.json();
+  const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
+  const candidatejson = await candidateApplications.json();
+
+  return {
+    props: {
+      aunties: auntyjson,
+      candidates: candidatejson
+    },
+  };
+}
 
 
-export default function VetterDash({aunties, candidates}) {
+export default function VetterDash({ aunties, candidates }) {
 
-  let imageWith = 72;
-  let imageHeight = 72;
-  //TODO: to fix error, use useEffect to load data then pass to Application component
-  // const { state, dispatch } = useContext(Context);
+  //TODO: to fix error, use useEffect to load data then pass to Application component?
+  const { state, dispatch } = useContext(Context);
+  const [isVetter, setIsVetter] = useState(false)
 
-  const owner = process.env.NEXT_PUBLIC_OWNER
+  const vetter = process.env.NEXT_PUBLIC_VETTER
+  console.log(state.user)
+  console.log(vetter)
+
+  useEffect(() => {
+    if(state.user === vetter){
+      setIsVetter(true)
+    }
+    if(!state.user){
+      setIsVetter(false)
+    }
+  },[state])
+console.log(isVetter)
   return (
     <div className={styles.container}>
       <Head>
@@ -41,23 +52,18 @@ export default function VetterDash({aunties, candidates}) {
       <NavBar />
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Time to approve some applications! 
+          Time to approve some applications!
         </h1>
-        {/* <Wallet owner={owner} />
-        <ApplicationGrid aunties={aunties} candidates={candidates}/>
-        <Button>Approve Application</Button>
-        <Button>Mint NFT</Button> */}
+        {!isVetter && (<div><p className={styles.description}>Please connect your wallet to get started</p><Wallet vetter={vetter} /></div>)}
+        {isVetter && <ApplicationGrid aunties={aunties} candidates={candidates} vetter={state}/>}
       </main>
       <footer className={styles.footer}>
         <span>
-        <Link href="/" passHref>
+          <Link href="/" passHref>
             <a>
-            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
+              <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={72} height={72} />
             </a>
           </Link>
-        {/* <ChakraNextLink href="/">
-            <Image src="/images/FourthWaveLogo_Transparent.png" alt="Vercel Logo" width={imageWith} height={imageHeight} />
-          </ChakraNextLink> */}
         </span>
       </footer>
     </div>)

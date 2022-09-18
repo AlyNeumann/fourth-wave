@@ -1,13 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import { Context } from "../context/context";
 import { Grid, GridItem, Button, Checkbox, Text } from '@chakra-ui/react'
+import Reaptcha from 'reaptcha';
 
 export default function CandidateForm() {
 
+    const [captchaToken, setCaptchaToken] = useState(null);
+    const [verified, setVerified] = useState(false);
+    const captchaRef = useRef(null);
+
     const [age, setAge] = useState("35-44")
     const { state, dispatch } = useContext(Context);
+
     const handleAge = (e) => {
         setAge(e.target.value)
+    }
+
+    const verify = () => {
+        captchaRef.current.getResponse().then(res => {
+            setCaptchaToken(res)
+            setVerified(true)
+        })
+
     }
 
     return (
@@ -68,8 +82,16 @@ export default function CandidateForm() {
                     <label htmlFor="wallet" pointeEvents="none">User Wallet: </label>
                     <input type="text" id="wallet" name="wallet" value={state.user} readOnly/>
                 </GridItem>
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50' pl="5%" >
+                    <Reaptcha
+                        sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+                        ref={captchaRef}
+                        onVerify={verify}
+                        size="normal"
+                    ></Reaptcha>
+                </GridItem>
                 <GridItem rowSpan={4} colSpan={4} p="2"bg='purple.50' borderRadius='0 0 15px 15px'>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" disabled={!verified}>Submit</Button>
                 </GridItem>
 
                 </Grid>

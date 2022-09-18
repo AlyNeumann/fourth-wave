@@ -7,7 +7,7 @@ export default function VideoPlayer(){
     <div>
       <ReactPlayer 
       className={styles.reactplayer}
-      playing={true}
+      playing={false}
       controls={true}
       playIcon="true"
       url='https://fourth-wave.s3.amazonaws.com/Aly+Promo+For+reveiw+and+release.mp4' />

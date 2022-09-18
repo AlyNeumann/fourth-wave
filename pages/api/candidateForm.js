@@ -4,6 +4,8 @@ import Forms from '../../models/Forms';
 export default async function handler(req, res) {
   const formType = 'candidate';
   const status = "new";
+  const telegramId = "";
+  const vetter = "";
 
   const {first,
     last,
@@ -41,7 +43,9 @@ export default async function handler(req, res) {
       reason, 
       age,
       wallet,
-      status
+      status,
+      telegramId,
+      vetter
     });
 
     const client = await clientPromise;

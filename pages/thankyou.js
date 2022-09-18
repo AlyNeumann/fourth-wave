@@ -20,6 +20,9 @@ export default function Thankyou() {
         <h1 className={styles.title}>
           Thank you!
         </h1>
+        <p className={styles.description}>
+          If your application is approved, you will be contacted with further instructions.
+        </p>
         <Link href="/" passHref>
           <Button colorScheme="teal"
             variant="ghost"
