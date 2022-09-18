@@ -8,30 +8,12 @@ import Wallet from '../components/Wallet';
 import styles from '../styles/Home.module.css';
 import ApplicationGrid from '../components/ApplicationGrid';
 
-export async function getStaticProps(context) {
-  const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
-  const auntyjson = await auntyApplications.json();
-  const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
-  const candidatejson = await candidateApplications.json();
+export default function VetterDash() {
 
-  return {
-    props: {
-      aunties: auntyjson,
-      candidates: candidatejson
-    },
-  };
-}
-
-
-export default function VetterDash({ aunties, candidates }) {
-
-  //TODO: to fix error, use useEffect to load data then pass to Application component?
   const { state, dispatch } = useContext(Context);
   const [isVetter, setIsVetter] = useState(false)
 
   const vetter = process.env.NEXT_PUBLIC_VETTER
-  console.log(state.user)
-  console.log(vetter)
 
   useEffect(() => {
     if(state.user === vetter){
@@ -41,7 +23,7 @@ export default function VetterDash({ aunties, candidates }) {
       setIsVetter(false)
     }
   },[state])
-console.log(isVetter)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -55,7 +37,7 @@ console.log(isVetter)
           Time to approve some applications!
         </h1>
         {!isVetter && (<div><p className={styles.description}>Please connect your wallet to get started</p><Wallet vetter={vetter} /></div>)}
-        {isVetter && <ApplicationGrid aunties={aunties} candidates={candidates} vetter={state}/>}
+        {isVetter && <ApplicationGrid vetter={state}/>}
       </main>
       <footer className={styles.footer}>
         <span>

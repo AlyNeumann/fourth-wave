@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, GridItem } from '@chakra-ui/react'
 import ApplicationDisplayBoxes from "./ApplicationDisplayBoxes";
 import AcceptedApplicationDisplayBoxes from "./AcceptedApplicationDisplayBoxes";
 
 export default function ApplicationGrid(props) {
-    console.log(props)
 
-    let newAunties = props.aunties.filter(aunty => aunty.status === "new");
-    let acceptedAunties = props.aunties.filter(aunty => aunty.status !== "new");
-    let newCandidates = props.candidates.filter(candidate => candidate.status === "new");
-    let acceptedCandidates = props.candidates.filter(candidate => candidate.status !== "new");
+    const [aunties, setAunties] = useState([]);
+    const [candidates, setCandidates] = useState([]);
+    const fetchData = async () => {
+        const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
+        const auntyjson = await auntyApplications.json();
+        setAunties(auntyjson)
+        const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
+        const candidatejson = await candidateApplications.json();
+        setCandidates(candidatejson)
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+    let newAunties = aunties.filter(aunty => aunty.status === "new");
+    let acceptedAunties = aunties.filter(aunty => aunty.status !== "new");
+    let newCandidates = candidates.filter(candidate => candidate.status === "new");
+    let acceptedCandidates = candidates.filter(candidate => candidate.status !== "new");
     let vetterId = props.vetter.user;
 
     return (
