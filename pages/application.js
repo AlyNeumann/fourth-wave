@@ -83,7 +83,7 @@ export default function Application() {
                     <Grid
                         h='60%'
                         gap='1'
-                        width='95%'>
+                        >
                         <GridItem colStart={1} colEnd={12} h='80%' w="100%" bg='purple.100'>
                             <Box boxShadow='2xl' pt='10' pl='5' pr='5' pb='90' rounded='md' bg='white'>
                                 {isAuntyApplication && <AuntyForm />}

@@ -27,38 +27,38 @@ export default function CandidateForm() {
     return (
             <form action="/api/candidateForm" method="post" spellCheck="false" >
                 <Text fontSize='3xl' color='teal.600'>Candidate Application</Text>
-                <Grid  h="575px" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
+                <Grid  h="675px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0'>
                 <label htmlFor="first " >First Name: </label>
-                <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" />
+                <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" maxLength="30"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                 <label htmlFor="last ">Last Name: </label>
-                <input type="text" id="nametext" name="last" required pattern="[a-zA-Z]{3,35}" />
+                <input type="text" id="nametext" name="last" required pattern="[a-zA-Z]{3,35}" maxLength="40"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                 <label htmlFor="last ">Email Address: </label>
-                <input type="email" id="nametext" name="email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+                <input type="email" id="nametext" name="email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" maxLength="40"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
-                    <label htmlFor="last ">Link to your twitter: </label>
-                    <input type="text" id="socialtext" name="twitter" />
+                    <label htmlFor="last ">Link / URL to your twitter (EG: https://twitter.com/the_code_queen): </label>
+                    <input type="text" id="socialtext" name="twitter" maxLength="100"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
-                    <label htmlFor="last ">Link to your facebook: </label>
-                    <input type="text" id="socialtext" name="facebook" />
+                    <label htmlFor="last ">Link / URL to your facebook: </label>
+                    <input type="text" id="socialtext" name="facebook" maxLength="100"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
-                    <label htmlFor="last ">Other social medias: </label>
-                    <input type="text" id="socialtext" name="socialother" />
+                    <label htmlFor="last ">Link / URL to other social medias: </label>
+                    <input type="text" id="socialtext" name="socialother" maxLength="100"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <label htmlFor="last ">References: </label>
-                    <input type="text" id="socialtext" name="references" required />
+                    <input type="text" id="socialtext" name="references" required maxLength="300" minLength="50"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
-                <label htmlFor="last ">Reasons for applying: </label>
-                <input type="text" id="reasonstext" name="reason" required />
+                <label htmlFor="last ">Reasons for applying (approximately 150 to 300 words):</label>
+                <input type="text" id="reasonstext" name="reason" required maxLength="1500" minLength="150"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                 <label htmlFor="age ">Age: </label>
@@ -90,7 +90,7 @@ export default function CandidateForm() {
                         size="normal"
                     ></Reaptcha>
                 </GridItem>
-                <GridItem rowSpan={4} colSpan={4} p="2"bg='purple.50' borderRadius='0 0 15px 15px'>
+                <GridItem rowSpan={4} colSpan={4} p="2" bg='purple.50' borderRadius='0 0 15px 15px'>
                 <Button type="submit" disabled={!verified}>Submit</Button>
                 </GridItem>
 

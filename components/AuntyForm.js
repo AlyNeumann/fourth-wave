@@ -28,7 +28,7 @@ export default function AuntyForm() {
         <form action="/api/auntyForm" method="post" spellCheck="false">
             <Text fontSize='3xl' color='teal.600'>Aunty Application</Text>
             {/* <p>All information submitted to Fourth Wave will be kept confidential.</p> */}
-            <Grid h="650px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
+            <Grid h="675px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0' w="100%">
                     <label htmlFor="first">First Name: </label>
                     <input type="text" id="nametext" name="first" required pattern="[a-zA-Z]{3,20}" maxLength="30"/>
@@ -55,7 +55,7 @@ export default function AuntyForm() {
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <label htmlFor="last ">References: </label>
-                    <input type="text" id="socialtext" name="references" required maxLength="300" minLength="100"/>
+                    <input type="text" id="socialtext" name="references" required maxLength="300" minLength="50"/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <label htmlFor="last ">Reasons for applying (approximately 150 to 300 words): </label>
