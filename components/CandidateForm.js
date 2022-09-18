@@ -82,7 +82,7 @@ export default function CandidateForm() {
                     <label htmlFor="wallet" pointeEvents="none">User Wallet: </label>
                     <input type="text" id="wallet" name="wallet" value={state.user} readOnly/>
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={4} bg='purple.50' pl="5%" >
+                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <Reaptcha
                         sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
                         ref={captchaRef}
