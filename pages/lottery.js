@@ -34,6 +34,9 @@ export default function Lottery() {
         <p className={styles.descriptionsm}>
           Enter our 50 / 50 lottery to support our Auntie Network and win big! 
         </p>
+        <p className={styles.descriptionsm}>
+          Next draw date: October 1st 2022
+        </p>
         {!state.user ? 'Please connect your wallet to play' : `Account succesfully connected`}
         {!state.user ? <Wallet page='lottery' user='connected'/> : <Wallet page='lottery' user='connected'/>}
         <LotteryGrid />

@@ -50,7 +50,7 @@ export default function Application() {
                 </h1>
                 <p className={styles.description}>
                 </p>
-                {!state.user ? <Wallet /> : `Account succesfully connected`}
+                {/* {!state.user ? <Wallet /> : `Account succesfully connected`} */}
                 {!openApplication && <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="10%">
                     <GridItem colSpan={2} h='100' w='100%'><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[140, 200, 300]}>
                         <Button colorScheme="teal"

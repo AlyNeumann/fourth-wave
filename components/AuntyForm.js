@@ -27,7 +27,7 @@ export default function AuntyForm() {
     return (
         <form action="/api/auntyForm" method="post" spellCheck="false">
             <Text fontSize='3xl' color='teal.600'>Aunty Application</Text>
-            {/* <p>All information submitted to Fourth Wave will be kept confidential.</p> */}
+            <p>All information submitted will be deleted upon review.</p>
             <Grid h="675px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0' w="100%">
                     <label htmlFor="first">First Name: </label>
@@ -79,10 +79,10 @@ export default function AuntyForm() {
                         By checking this box, you are agreeing to be contacted by the Fourth Wave Team.
                     </Checkbox>
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
+                {/* <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <label htmlFor="wallet">User Wallet: </label>
                     <input type="text" id="wallet" name="wallet" value={state.user} readOnly />
-                </GridItem>
+                </GridItem> */}
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50'>
                     <Reaptcha
                         sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
