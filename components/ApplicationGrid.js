@@ -7,14 +7,14 @@ export default function ApplicationGrid(props) {
 
     const [aunties, setAunties] = useState([]);
     const [candidates, setCandidates] = useState([]);
-    const fetchData = async () => {
-        const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
-        const auntyjson = await auntyApplications.json();
-        setAunties(auntyjson)
-        const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
-        const candidatejson = await candidateApplications.json();
-        setCandidates(candidatejson)
-    }
+    // const fetchData = async () => {
+    //     const auntyApplications = await fetch("http://localhost:3000/api/getAuntyApplications");
+    //     const auntyjson = await auntyApplications.json();
+    //     setAunties(auntyjson)
+    //     const candidateApplications = await fetch("http://localhost:3000/api/getCandidateApplications");
+    //     const candidatejson = await candidateApplications.json();
+    //     setCandidates(candidatejson)
+    // }
 
     useEffect(() => {
         // fetchData()
