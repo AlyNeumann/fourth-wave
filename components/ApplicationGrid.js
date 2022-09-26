@@ -17,7 +17,7 @@ export default function ApplicationGrid(props) {
     }
 
     useEffect(() => {
-        fetchData()
+        // fetchData()
     }, [])
     let newAunties = aunties.filter(aunty => aunty.status === "new");
     let acceptedAunties = aunties.filter(aunty => aunty.status !== "new");
