@@ -52,6 +52,9 @@ export default function Lottery() {
         <Button>
         <a target="_blank" href="https://docs.fourthwavedao.ca/" rel="noopener noreferrer">Fourth Wave documentation</a>
         </Button>
+        <p className={styles.description}>
+          MATIC on the wrong chain? Click the LiFi Swap tab on the right!
+        </p>
         <LiFi/>
         <span>
             <SocialMediaIcons />

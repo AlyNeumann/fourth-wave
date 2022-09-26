@@ -10,6 +10,7 @@
   flex-direction: column;
   margin-top: 2%;
   align-items: center;
+  color:rgb(68, 112, 109)
 }
 
 .footer {
@@ -169,4 +170,8 @@ width: auto !important;
 .nowarning {
   color: rgb(0, 255, 229);
   font-size: 1.25rem;
+}
+
+.home-page-box {
+  border-color: rgb(38, 54, 54);
 }

@@ -6,6 +6,9 @@ import FAQ from '../components/FAQ';
 import Link from 'next/link';
 import NavBar from '../components/NavBar';
 import SocialMediaIcons from '../components/SocialMediaIcons';
+import AboutDetails from '../components/AboutDetails';
+// import Team from '../components/AboutTeam';
+import AboutTeamGrid from '../components/AboutTeamGrid';
 
 
 export default function About() {
@@ -25,19 +28,17 @@ export default function About() {
         <p className={styles.description}>
           Fourth Wave DAO is a DeFi protocol running on the Polygon Network that helps women in need connect with people that can help.
         </p>
-        <p className={styles.descriptionsm}>
-          We are growing a network of anonymous Aunties across North America, and will be providing them with the funding they require to support women.
-        </p>
-        <p className={styles.descriptionsm}>
-          We will offer education as well as services required for women to stay anonymous while using the internet.
-        </p>
-        <p className={styles.descriptionsm}>
-          Our innovative governance model will be a breath of fresh air to the DeFi ecosystem.
-        </p>
-        <p className={styles.descriptionsm}>
-          Read more about Fourth Wave below!
-        </p>
-        <Grid templateColumns='repeat(5, 1fr)' gap={4} pt="5%" pb="1%">
+        <AboutDetails/>
+        <a target="_blank" href="https://docs.fourthwavedao.ca/" rel="noopener noreferrer">
+          <Button color="teal.600"
+            variant="ghost"
+            padding="10px 10px 10px 10px"
+            marginTop={['10%', '5%', '5%']}
+            whiteSpace='normal'
+            fontWeight='bold'
+            size="lg">Read our documentation</Button>
+            </a>
+        <Grid templateColumns='repeat(5, 1fr)' gap={4} p="5%">
           <GridItem colSpan={2} h='100' ><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[100, 200, 300]}>
             <a target="_blank" href="https://medium.com/@alymarguerite/fourth-wave-dao-the-white-paper-dcdce2582a06" rel="noopener noreferrer">
               <Button
@@ -57,14 +58,10 @@ export default function About() {
           </Box>
           </GridItem>
         </Grid>
-          <a target="_blank" href="https://docs.fourthwavedao.ca/" rel="noopener noreferrer">
-          <Button color="teal.600"
-            variant="ghost"
-            padding="10px 10px 10px 10px"
-            marginTop={['10%', '5%', '5%']}
-            whiteSpace='normal'
-            size="lg">Read our documentation</Button>
-            </a>
+        <h1 className={styles.title}>
+         Meet our Team
+        </h1>
+            <AboutTeamGrid/>
         <span>
             <SocialMediaIcons />
         </span>
