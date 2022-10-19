@@ -18,17 +18,17 @@ export default function HomeCardGrid() {
             </GridItem>
             <GridItem colSpan={[6,4,2]} colEnd={6} h={[240, 185, 220]} bg='teal.100' w="500" borderRadius='lg' pt="10px">
             <animated.div style={props}>
-                <HomeCard text="The Auntie Network will provide food, shelter, transportation, and support to women seeking reproductive health services." />
+                <HomeCard text="The Auntie Network will provide food, shelter, transportation, and support to women seeking safe access to healthcare services." />
                 </animated.div>
             </GridItem>
             <GridItem colSpan={[6,4,2]} h={[240, 185, 220]} bg='teal.100' w="500" borderRadius='lg' pt="10px">
             <animated.div style={props2}>
-                <HomeCard text="Our DeFi protocol will attract philanthropist-investors who want to see their investments performing societal good." />
+                <HomeCard text="Our DeFi protocols will attract philanthropist-investors who want to see their investments grow while performing societal good." />
                 </animated.div>
             </GridItem>
             <GridItem colSpan={[6,4,2]} colEnd={6} h={[240, 185, 220]} w="500" bg='teal.100' borderRadius='lg' pt="10px">
             <animated.div style={props2}>
-                <HomeCard text="Our innovative governance model will demonstrate the true power of a community-driven organization." />
+                <HomeCard text="Fourth Wave DAO's innovative governance model will demonstrate the true power of a decentralized community-driven organization." />
                 </animated.div>
             </GridItem>
         </Grid>

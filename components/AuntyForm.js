@@ -26,7 +26,7 @@ export default function AuntyForm() {
 
     return (
         <form action="/api/auntyForm" method="post" spellCheck="false">
-            <Text fontSize='3xl' color='teal.600'>Aunty Application</Text>
+            <Text fontSize='3xl' color='teal.600'>Auntie Application</Text>
             <p>All information submitted will be deleted upon review.</p>
             <Grid h="675px" w="100%" border='1px' borderColor='purple.100' borderRadius='15px' color='teal.700'>
                 <GridItem rowSpan={2} colSpan={4} bg='purple.50' borderRadius='15px 15px 0 0' w="100%">

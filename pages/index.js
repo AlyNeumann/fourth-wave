@@ -7,6 +7,7 @@ import Link from 'next/link';
 import NavBar from '../components/NavBar';
 import SocialMediaIcons from '../components/SocialMediaIcons';
 import HomeCardGrid from '../components/HomePageCardGrid';
+import AuntieMap from '../components/AuntieMap';
 
 
 export default function Home() {
@@ -27,6 +28,10 @@ export default function Home() {
           Welcome to Fourth Wave DAO
         </h1>
         <HomeCardGrid />
+        <h4 className={styles.description}>
+          Auntie Network Growth
+        </h4>
+        <AuntieMap/>
         <Grid templateColumns='repeat(5, 1fr)' gap={4}>
           <GridItem colSpan={2} h='100' w='100%' ><Box boxShadow='xl' p='6' bg='white' w={[120, 200, 300]}>
             <Link href="/about">

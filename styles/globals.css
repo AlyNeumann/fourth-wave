@@ -59,3 +59,23 @@ overflow: hidden;
   height: 150px;
   width: 100%;
 }
+
+.map-container-home {
+  overflow: hidden;
+  height: 600px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 600px) {
+  .map-container-home {
+    overflow: hidden;
+    height: 300px;
+    width: 100%;
+  }
+}
+
+.error {
+  color: red;
+  font-weight: bolder;
+}

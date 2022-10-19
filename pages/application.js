@@ -62,7 +62,7 @@ export default function Application() {
                             h='100%'
                             p='5%'
                             onClick={handleApplication}
-                            value="aunty">Apply to become an Aunty</Button>
+                            value="aunty">Apply to become an Auntie</Button>
                     </Box>
                     </GridItem>
                     <GridItem colStart={4} colEnd={6} h='100' w='100%'><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[140, 200, 300]}>
@@ -75,7 +75,7 @@ export default function Application() {
                             w='100%'
                             h='100%'
                             p='5%'
-                            onClick={handleApplication}>Apply to become a Candidate</Button>
+                            onClick={handleApplication}>Apply to become &ensp;a Candidate</Button>
                     </Box>
                     </GridItem>
                 </Grid>}

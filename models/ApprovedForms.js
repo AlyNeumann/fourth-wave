@@ -14,8 +14,7 @@ var formdata = new Schema({
         required: true
     },
     NFTaddress: {
-        type: String,
-        required: true
+        type: String
     },
     location: {
         type: "Point",

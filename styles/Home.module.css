@@ -47,6 +47,14 @@
   color:rgb(68, 112, 109)
 }
 
+.subtitle {
+  margin: 10px;
+  margin-top: 50px;
+  line-height: 0.75;
+  font-size: 2rem;
+  color:rgb(68, 112, 109)
+}
+
 .title,
 .description {
   text-align: center;
@@ -152,7 +160,7 @@ width: auto !important;
 }
 
 .socialicons {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 @media (max-width: 600px) {

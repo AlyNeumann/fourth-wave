@@ -106,13 +106,25 @@ const IsolatedModal = ({ data, vetter }) => {
         console.log(json)
     }
 
-    const approveApplicantHandler = (e) => {
+    const approveApplicantHandler = async (e) => {
         //use to seperate approve & reject (or could make seperate handler...)
         console.log(e.target.value)
         //use to seperate Aunties & Candidates
         console.log(data.formType)
         const answer = window.confirm("are you sure?")
+        const telegramID = data.telegramId;
         if (answer) {
+            //generate wallet - this creates the first ApprovedForms record
+            const address = await fetch('http://localhost:3000/api/generateWallet', {
+                method: 'post',
+                body: JSON.stringify({ telegramID })
+            })
+            const publicAddress = await address.json()
+            console.log(publicAddress)
+            //grab telegram ID & location data - call save metadata endpoint 
+            //use returned metadata hash & call mint nft end point using public address as destination
+            //use returned NFT address & locations to update Auntie record in DB
+            //send "approved" email with instructions for login with wallet & telegram ID!!!!
             console.log('mint NFT, delete DB info, add new record with NFT address, locations, & wallet')
             onClose();
         } else {

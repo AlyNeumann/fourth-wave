@@ -7,7 +7,6 @@ export default function AboutDetails() {
     let [windowHeight, setWindowHeight] = useState(60)
     
     useEffect(()=> {
-        console.log(window.innerWidth)
         if(window.innerWidth > 1000){
             setWindowHeight(60)
         }
@@ -45,7 +44,6 @@ export default function AboutDetails() {
         height: windowHeight,
         from: { opacity: 0, x: 20, height: 0 }
     });
-    console.log(windowHeight)
     return (
         <div>
                 {trail.map(({ x, height, ...rest }, index) => (

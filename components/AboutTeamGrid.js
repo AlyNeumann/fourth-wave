@@ -8,7 +8,7 @@ export default function AboutTeamGrid() {
         <Grid templateColumns={['repeat(6)', 'repeat(6)', 'repeat(6, 1fr)']} templateRows='repeat(2, 1fr)' gap={4} pt="30px" pb="30px">
             <GridItem colSpan={[6, 4, 2]} bg='teal.100' w="500" borderRadius='lg' pt="10px">
                     <Team 
-                    img="/images/Aly_circle.png"
+                    img="https://fourth-wave-images.4everland.store/images/Aly_circle.png"
                     name="Aly Neumann" 
                     role="Founder" 
                     role2="Lead Developer" 
@@ -18,7 +18,7 @@ export default function AboutTeamGrid() {
             </GridItem>
             <GridItem colSpan={[6, 4, 2]} colEnd={6} bg='teal.100' w="500" borderRadius='lg' pt="10px">
                     <Team 
-                    img="/images/Gaby_circle.png"
+                    img="https://fourth-wave-images.4everland.store/images/Gaby_circle_sm.png"
                     name="Gaby Chen" 
                     role="" 
                     role2="Mobile App Developer" 
@@ -28,7 +28,7 @@ export default function AboutTeamGrid() {
             </GridItem>
             <GridItem colSpan={[6, 4, 2]} colEnd={6} bg='teal.100' w="500" borderRadius='lg' pt="10px">
                     <Team 
-                    img="/images/Maysam_circle.png"
+                    img="https://fourth-wave-images.4everland.store/images/Maysam_circle_sm.png"
                     name="Maysam Shahsavari" 
                     role="" 
                     role2="Front End Developer" 
@@ -38,7 +38,7 @@ export default function AboutTeamGrid() {
             </GridItem>
             <GridItem colSpan={[6, 4, 2]} colEnd={6} bg='teal.100' w="500" borderRadius='lg' pt="10px">
                     <Team 
-                    img="/images/Simon_circle.png"
+                    img="https://fourth-wave-images.4everland.store/images/Simon_circle-sm.png"
                     name="Simon Neviani" 
                     role="" 
                     role2="Marketing" 
@@ -48,7 +48,7 @@ export default function AboutTeamGrid() {
             </GridItem>
             <GridItem colSpan={[6, 4, 2]} colEnd={6} w="500" bg='teal.100' borderRadius='lg' pt="10px">
                     <Team 
-                    img="/images/Mom_circle.png"
+                    img="https://fourth-wave-images.4everland.store/images/Molly_circle_sm.png"
                     name="Molly Barber" 
                     role="" 
                     role2="Lead Vetter" 
@@ -58,7 +58,7 @@ export default function AboutTeamGrid() {
             </GridItem>
             <GridItem colSpan={[6, 4, 2]} colEnd={6} w="500" bg='teal.100' borderRadius='lg' pt="10px">
                     <Team 
-                    img="/images/Wayne_circle.png"
+                    img="https://fourth-wave-images.4everland.store/images/Wayne_circle_sm.png"
                     name="Wayne Robinson" 
                     role="" 
                     role2="Vetting Team"

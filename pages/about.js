@@ -58,7 +58,7 @@ export default function About() {
           </Box>
           </GridItem>
         </Grid>
-        <h1 className={styles.title}>
+        <h1 className={styles.subtitle}>
          Meet our Team
         </h1>
             <AboutTeamGrid/>

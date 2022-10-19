@@ -7,7 +7,6 @@ const { NEXT_PUBLIC_NFT_STORAGE_API_KEY } = process.env
 
 export default async function StoreAsset() {
    const client = new NFTStorage({ token: NEXT_PUBLIC_NFT_STORAGE_API_KEY })
-   console.log(NEXT_PUBLIC_NFT_STORAGE_API_KEY)
    const metadata = await client.store({
        name: 'Auntie',
        description: 'Auntie Role',

@@ -181,7 +181,7 @@ export default function Wallet(props) {
         cacheProvider: true,
         providerOptions,
       });
-
+      
       const provider = await web3Modal.connect();
       setProvider(provider);
 
@@ -194,6 +194,10 @@ export default function Wallet(props) {
       setWeb3(web3);
 
       let network = await web3.eth.net.getId()
+
+      if(network !== 137){
+        return setError('Please switch to Matic Mainnet!')
+      }
       setNetwork(network);
 
       let accounts = await web3.eth.getAccounts()
@@ -298,7 +302,7 @@ export default function Wallet(props) {
           </Button>
         </div>) : ''}</div>
         {(state.web3 && props.page == 'lottery') ? <PricePicker amount={amount} web3={state.web3} handleAmount={handleAmount} /> : ''}
-        <div>{error}</div>
+        <div className="error">{error}</div>
         <div>{(modalClose && !isConnected) ? "Please your connect wallet!" : ""}</div>
         <div>{donated ? 'thanks for your donation' : ''}</div>
       </div>

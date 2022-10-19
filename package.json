@@ -30,6 +30,7 @@
     "@portis/web3": "^4.0.7",
     "@sendgrid/mail": "^7.7.0",
     "@stripe/stripe-js": "^1.35.0",
+    "@tatumio/tatum": "^1.37.2",
     "@toruslabs/torus-embed": "^1.27.2",
     "@truffle/hdwallet-provider": "^2.0.13",
     "@venly/web3-provider": "^0.32.0",
@@ -84,6 +85,6 @@
   },
   "engines": {
     "npm": "8.14.0",
-    "node": "16.16.0"
+    "node": "16.15.0"
   }
 }
