@@ -74,6 +74,13 @@ overflow: hidden;
     width: 100%;
   }
 }
+.mapboxgl-ctrl-bottom-left {
+  visibility: hidden;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  visibility: hidden;
+}
 
 .error {
   color: red;

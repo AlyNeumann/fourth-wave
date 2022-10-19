@@ -27,11 +27,12 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to Fourth Wave DAO
         </h1>
-        <HomeCardGrid />
         <h4 className={styles.description}>
           Auntie Network Growth
         </h4>
         <AuntieMap/>
+        <HomeCardGrid />
+
         <Grid templateColumns='repeat(5, 1fr)' gap={4}>
           <GridItem colSpan={2} h='100' w='100%' ><Box boxShadow='xl' p='6' bg='white' w={[120, 200, 300]}>
             <Link href="/about">
