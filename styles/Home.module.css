@@ -163,12 +163,66 @@ width: auto !important;
   margin-top: 100px;
 }
 
+@media (max-width: 768px) {
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 3.7rem;
+    color:rgb(68, 112, 109)
+  }
+  .description {
+    margin: 1rem 0;
+    line-height: 1;
+    font-size: 1.5rem;
+    color:rgb(68, 112, 109);
+  }
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 3.5rem;
+    color:rgb(68, 112, 109)
+  }
 }
+
+@media (max-width: 380px) {
+  .title {
+    margin: 0;
+    line-height: 1;
+    font-size: 2.8rem;
+    color:rgb(68, 112, 109)
+  }
+  .description {
+    margin: 1rem 0;
+    line-height: 1;
+    font-size: 1rem;
+    color:rgb(68, 112, 109);
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 280px) {
+  .title {
+    margin: 0;
+    line-height: 1;
+    font-size: 2rem;
+    color:rgb(68, 112, 109)
+  }
+  .description {
+    margin: 1rem 0;
+    line-height: 1;
+    font-size: 1rem;
+    color:rgb(68, 112, 109);
+  }
+  
+}
+
 
 .warning {
   color: red;

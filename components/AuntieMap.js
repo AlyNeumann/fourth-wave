@@ -15,7 +15,7 @@ export default function Map(props) {
             container: mapContainer.current,
             style: 'mapbox://styles/alymarguerite/ck30gwnu40z7y1cm8lumnxcoe',
             center: [-100.643359, 36.464697],
-            zoom: 3,
+            zoom: 0,
             maxBounds: [-135.817461, 15.888320, -51.302448, 60.781126]
         });
 

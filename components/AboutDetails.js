@@ -1,6 +1,6 @@
 import { useTrail, animated as a } from "react-spring";
 import React, { useState, useEffect } from "react"
-import { Box } from '@chakra-ui/react';
+import styles from '../styles/Home.module.css'
 
 export default function AboutDetails() {
 
@@ -45,7 +45,7 @@ export default function AboutDetails() {
         from: { opacity: 0, x: 20, height: 0 }
     });
     return (
-        <div>
+        <div className={styles.descriptionsm}>
                 {trail.map(({ x, height, ...rest }, index) => (
                     <a.div
                         key={items[index]}
