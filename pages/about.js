@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Grid, GridItem, Box, Button } from '@chakra-ui/react'
+import { Grid, GridItem, Box, Button, Divider } from '@chakra-ui/react'
 import FAQ from '../components/FAQ';
 import Link from 'next/link';
 import NavBar from '../components/NavBar';
@@ -29,6 +29,7 @@ export default function About() {
           Fourth Wave DAO is a DeFi protocol running on the Polygon Network that helps women in need connect with people that can help.
         </p>
         <AboutDetails/>
+        {/* <Divider /> */}
         <a target="_blank" href="https://docs.fourthwavedao.ca/" rel="noopener noreferrer">
           <Button color="teal.600"
             variant="ghost"
@@ -38,6 +39,15 @@ export default function About() {
             fontWeight='bold'
             size="lg">Read our documentation</Button>
             </a>
+            <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSf4-EsHYewiDxX1Ietv51NJwWDqA7f28GRWYhunTlgDRXsmEQ/viewform?usp=sf_link" rel="noopener noreferrer">
+          <Button color="teal.600"
+            variant="ghost"
+            padding="10px 10px 10px 10px"
+            marginTop={['5%', '5%', '5%']}
+            whiteSpace='normal'
+            fontWeight='bold'
+            size="lg">Fill out this form to join our early access list & to receive email updates!</Button>
+            </a>  
         <Grid templateColumns='repeat(5, 1fr)' gap={4} p="5%">
           <GridItem colSpan={2} h='100' ><Box boxShadow='xl' p='6' rounded='md' bg='white' w={[100, 200, 300]}>
             <a target="_blank" href="https://medium.com/@alymarguerite/fourth-wave-dao-the-white-paper-dcdce2582a06" rel="noopener noreferrer">
@@ -58,6 +68,7 @@ export default function About() {
           </Box>
           </GridItem>
         </Grid>
+        <Divider />
         <h1 className={styles.subtitle}>
          Meet our Team
         </h1>

@@ -9,13 +9,13 @@ export default function WhitePaperText() {
                 What is Fourth Wave DAO?
             </p>
             <p className={styles.whitepapertext}>
-                Fourth Wave is a decentralized autonomous organization that helps women in need of safe medical services related to reproductive rights connect with people near by who can help them. Our DeFi protocol will build up a stable treasury of assets by offering philanthropist-investors an attractive ROI.
+                Fourth Wave is a decentralized autonomous organization that helps women in need of safe medical services related to reproductive rights connect with people near by who can help them. This network of helpers is called the Auntie Network. We are also building a mobile app that will serve as the gateway to DeFi protocols, and we will use profits to support the women and helpers in our Auntie Network.
             </p>
             <p className={styles.whitepapertitle}>
             Who is Fourth Wave DAO for?
             </p>
             <p className={styles.whitepapertext}>
-            Fourth Wave DAO is for anyone who wants to help women, either financialy or through our support network known as the Auntie Network.
+            Fourth Wave DAO is for anyone who wants to help women, anyone who wants to grow their wealth while supporting women, and anyone who needs an easy-to-use way to access the best protocols that DeFi has to offer.
             </p>
             <p className={styles.whitepapertitle}>
             What is the Auntie Network?
@@ -36,13 +36,14 @@ export default function WhitePaperText() {
             Who is the team behind Fourth Wave?
             </p>
             <p className={styles.whitepapertext}>
-            Our team is made up of feminists and political activists who view the blockchain ecosystem as a tool for political and social change.
+            Our team is made up of super hero tech & finance nerds, grumpy feminists, an experienced social worker, and political activists who view the blockchain ecosystem as a tool for political and social change.
             </p>
             <p className={styles.whitepapertitle}>
             How can I help?
             </p>
             <p className={styles.whitepapertext}>
-            Support the project by joining our community, applying to be an Auntie or a Candidate by clicking the "Applications" button above, playing the lottery game, or donating to our crowd funding campaign. 
+            Use our early sign up form so you can reserve your spot in the DAO, and to stay up to date on our upcoming governance token launch.
+            You can also support the project by joining our community, applying to be an Auntie or a Candidate by clicking the "Applications" button above, playing the lottery game, or donating to our crowd funding campaign. 
             We were kicked off of Go Fund Me, so we do need any help we can get.
             </p>
         </Box>

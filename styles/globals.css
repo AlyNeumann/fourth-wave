@@ -72,6 +72,7 @@ overflow: hidden;
     overflow: hidden;
     height: 300px;
     width: 100%;
+    margin-bottom: 70%;
   }
 }
 .mapboxgl-ctrl-bottom-left {

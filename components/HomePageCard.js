@@ -6,18 +6,18 @@ export default function HomeCard(props) {
         <Container>
             <Box
                 className="home-page-box"
-                h={[220, 150, 200, 150]}
+                h={[220, 180, 210, 190]}
                 boxShadow='xl' 
                 rounded='md' 
                 bg='teal.50'
-                p='4'
+                p='10%'
                 borderWidth='7px'
                 borderRadius='lg'
                 color='gray.500'
                 fontWeight='semibold'
-                letterSpacing=''
+                letterSpacing='2%'
                 fontSize={['sm','lg']}
-                ml='2'>
+                >
                 {props.text}
             </Box>
         </Container>

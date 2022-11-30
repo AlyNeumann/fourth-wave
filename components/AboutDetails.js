@@ -30,8 +30,8 @@ export default function AboutDetails() {
      }, [])
 
     const items = [
-        "We are growing a network of anonymous Aunties across North America, and will be providing them with the funding they require to support women.",
-        "We will offer education as well as services required for women to stay anonymous while using the internet.",
+        "We are growing a network of anonymous people across North America, who will serve as an underground railroad for women accessing reproductive health services.",
+        "The DAO will be launching a mobile app that allows simple access to the best of DeFi, and DAO members will own this app together.",
         "Our innovative governance model will be a breath of fresh air to the DeFi ecosystem.",
         "Read more about Fourth Wave below!"]
 

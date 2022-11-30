@@ -215,13 +215,13 @@ export const locations  = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -84.776753,
-                    47.995950
+                    -84.788938,
+                    47.995875
                 ]
             },
             "type": "Feature",
             "properties": {
-                "description": "Wawa",
+                "description": "Northern Ontario",
                 "marker-symbol": "rail-metro",
                 "title": "Wawa"
             }
@@ -230,15 +230,15 @@ export const locations  = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    117.545923,
-                    47.995950
+                    -117.634633,
+                    49.584793
                 ]
             },
             "type": "Feature",
             "properties": {
-                "description": "Wawa",
+                "description": "Central Kootenay",
                 "marker-symbol": "rail-metro",
-                "title": "Wawa"
+                "title": "Central Kootenay"
             }
         }
     ]
