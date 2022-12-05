@@ -92,6 +92,7 @@ export default function Wallet(props) {
     setError("");
     const randomResult = await state.lotteryContract.methods.randomResult().call();
     setRandomResult(randomResult);
+    console.log(randomResult)
   };
 
   const pickWinnerHandler = async () => {
