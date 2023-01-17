@@ -48,7 +48,7 @@ export const Providers = {
     package: true
   },
   walletlink: {
-    package: WalletLink,
+    package: CoinbaseWalletSDK,
     options: {
       appName: "Fourth Wave",
       infuraId: process.env.NEXT_PUBLIC_INFURA_KEY,
