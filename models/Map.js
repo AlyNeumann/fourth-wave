@@ -163,7 +163,22 @@ export const locations  = {
             "properties": {
                 "description": "Colorado Springs",
                 "marker-symbol": "rail-metro",
-                "title": "Colorado"
+                "title": "Colorado Springs"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -104.990251,
+                    42.739236
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Denver",
+                "marker-symbol": "rail-metro",
+                "title": "Denver"
             }
         },
         {
@@ -239,6 +254,141 @@ export const locations  = {
                 "description": "Central Kootenay",
                 "marker-symbol": "rail-metro",
                 "title": "Central Kootenay"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -113.880582,
+                    51.000379
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Calgary",
+                "marker-symbol": "rail-metro",
+                "title": "Calgary"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.697189,
+                    45.421532
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Ottawa",
+                "marker-symbol": "rail-metro",
+                "title": "Ottawa"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.161087,
+                    32.715736
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "San Diego",
+                "marker-symbol": "rail-metro",
+                "title": "San Diego"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.247682,
+                    51.380895
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Thunderbay",
+                "marker-symbol": "rail-metro",
+                "title": "Thunderbay"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -106.670044,
+                    52.133213
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Saskatoon",
+                "marker-symbol": "rail-metro",
+                "title": "Saskatoon"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.841843,
+                    49.693489
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Lethbridge",
+                "marker-symbol": "rail-metro",
+                "title": "Lethbridge"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.071532,
+                    29.951066
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "New Orleans",
+                "marker-symbol": "rail-metro",
+                "title": "New Orleans"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.068492,
+                    49.428053
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Saguenay",
+                "marker-symbol": "rail-metro",
+                "title": "Saguenay"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.207981,
+                    46.813878
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "Quebec City",
+                "marker-symbol": "rail-metro",
+                "title": "Quebec City"
             }
         }
     ]

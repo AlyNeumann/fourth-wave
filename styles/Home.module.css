@@ -163,6 +163,10 @@ width: auto !important;
   margin-top: 100px;
 }
 
+.twitter-link {
+  text-decoration: underline !important;
+}
+
 @media (max-width: 768px) {
   .title {
     margin: 0;
